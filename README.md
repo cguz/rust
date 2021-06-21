@@ -1,4 +1,10 @@
-# rust
+# Learning the Rust Programming Language
+
+## Code examples
+
+* Parser
+
+## Documentations
 
 Code Guidelines:
 
