@@ -22,8 +22,9 @@
 * Rust libraries and applications:
    * https://lib.rs/
  
-* Rust installation in Eclipse: 
-   * https://github.com/eclipse/corrosion
+* Rust installation:
+    * Rust programm: https://rustup.rs/
+    * IDE Eclipse: https://github.com/eclipse/corrosion or from the official eclipse installer.
 
 * The Cargo book: Cargo is the Rust package manager. Cargo downloads your Rust package's dependencies, compiles your packages, makes distributable packages, and uploads them to crates.io, the Rust community’s package registry (this last part can be avoided).
    * https://doc.rust-lang.org/cargo/index.html 
