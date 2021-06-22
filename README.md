@@ -18,7 +18,8 @@
    * Learn by examples https://doc.rust-lang.org/rust-by-example/index.html 
    * [X] Rustlings code: https://github.com/rust-lang/rustlings/ .
       It is a requirement to install msvc C++ tools from https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16
-
+   * [X] Cheat Sheets: https://cheats.rs/, https://programming-idioms.org/cheatsheet/Go/Rust
+    
 * Rust libraries and applications:
    * https://lib.rs/
  
