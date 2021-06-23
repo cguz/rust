@@ -38,3 +38,6 @@
     * [X] Store the grammar file
     * [X] Generate the parser java -jar <path to ANTLR4 tool> -Dlanguage=Rust MyGrammar.g4
 
+## Cheets
+
+* Compile with no warnings:  alias test='RUSTFLAGS=-Awarnings cargo +nightly test -- --nocapture'
