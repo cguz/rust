@@ -18,7 +18,7 @@
    * Learn by examples https://doc.rust-lang.org/rust-by-example/index.html 
    * [X] Rustlings code: https://github.com/rust-lang/rustlings/ .
       It is a requirement to install msvc C++ tools from https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16
-   * [X] Cheat Sheets: https://cheats.rs/, https://programming-idioms.org/cheatsheet/Go/Rust
+   * [X] Cheat Sheets: https://cheats.rs/, https://programming-idioms.org/cheatsheet/Rust
     
 * Rust libraries and applications:
    * https://lib.rs/
@@ -38,6 +38,3 @@
     * [X] Store the grammar file
     * [X] Generate the parser java -jar <path to ANTLR4 tool> -Dlanguage=Rust MyGrammar.g4
 
-## Compare different codes
-
-https://programming-idioms.org/idiom/58/extract-file-content-to-a-string
