@@ -41,3 +41,7 @@
 ## Cheets
 
 * Compile with no warnings:  alias test='RUSTFLAGS=-Awarnings cargo +nightly test -- --nocapture'
+
+## Utils
+
+* translate Java to Rust: https://github.com/aschoerk/converter-page
