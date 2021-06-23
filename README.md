@@ -37,3 +37,7 @@
     * [X] Download the last release from github's repository https://github.com/rrevenantt/antlr4rust
     * [X] Store the grammar file
     * [X] Generate the parser java -jar <path to ANTLR4 tool> -Dlanguage=Rust MyGrammar.g4
+
+## Compare different codes
+
+https://programming-idioms.org/idiom/58/extract-file-content-to-a-string
