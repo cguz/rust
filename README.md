@@ -45,3 +45,26 @@
 ## Utils
 
 * translate Java to Rust: https://github.com/aschoerk/converter-page
+
+## Compare to C in embedded systems
+
+| features | Rust      | C |
+| -- | --------  | -------- |
+safety |  compile-time  | hard |
+learn | similar to C  |  |
+sintax | similar to C  |  |
+abstractions | more | fewer |
+primitive standard library | more and can be turned off | fewer |
+sintax | similar to C  |  |
+bitwise operation over register values [1](https://opensource.com/article/20/1/c-vs-rust-abstractions) | easy and secure to implement | complex to implement |
+coding standards for programming critical systems | data      | data |
+easy to verify and catch bugs | data      | data |
+tools to debug | data      | data |
+tools to testing | data      | data |
+tools to code verification | data      | data |
+integration with [LLVM](https://llvm.org/) | good | good |
+
+GCC | not yet implemented | a bit faster |
+
+cargo-bloat : Find out what takes most of the space in your executable
+cargo-tree :  Display a tree visualization of a dependency graph
