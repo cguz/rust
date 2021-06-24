@@ -65,7 +65,7 @@ better documentation | X  |  |
 bitwise operation over register values [1](https://opensource.com/article/20/1/c-vs-rust-abstractions) | easy and secure to implement | complex to implement |
 coding standards for programming critical systems | There is nothing, but there are some [resources](https://github.com/rust-embedded/awesome-embedded-rust)  | X |
 easy to verify and catch bugs | at compile-time | hard |
-tools to debug | quite hard and [less app](https://lib.rs/development-tools/debugging), dbg, log | X |
+tools to debug | quite hard and [less app](https://lib.rs/development-tools/debugging), dbg, log, rust-gdb | X |
 tools to testing |  [pretty_assertions](https://crates.io/crates/pretty-assertions), [others](https://lib.rs/development-tools/testing) | X |
 tools to code verification |     | X |
 tools to profiling | [applications](https://lib.rs/development-tools/profiling)  | X |
