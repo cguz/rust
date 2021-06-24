@@ -50,21 +50,45 @@
 
 | features | Rust      | C |
 | -- | --------  | -------- |
-safety |  compile-time  | hard |
-learn | similar to C  |  |
-sintax | similar to C  |  |
+memory safety |  compile-time  | hard |
+learn | easier  |  |
+sintax | similar to C but better  |  |
 abstractions | more | fewer |
 primitive standard library | more and can be turned off | fewer |
 sintax | similar to C  |  |
+cost heap allocations | less  | high |
+functions optimized for their type | X  |  |
+thread-safety of all code | X  |  |
+guarantess freedom from data races and memory unsafety | X  |  |
+makes developers write optimal code | X  |  |
+better documentation | X  |  |
 bitwise operation over register values [1](https://opensource.com/article/20/1/c-vs-rust-abstractions) | easy and secure to implement | complex to implement |
-coding standards for programming critical systems | data      | data |
-easy to verify and catch bugs | data      | data |
-tools to debug | data      | data |
-tools to testing | data      | data |
-tools to code verification | data      | data |
+coding standards for programming critical systems | There is nothing, but there are some [resources](https://github.com/rust-embedded/awesome-embedded-rust)  | X |
+easy to verify and catch bugs | at compile-time | hard |
+tools to debug | quite hard and [less app](https://lib.rs/development-tools/debugging), dbg, log | X |
+tools to testing |  [pretty_assertions](https://crates.io/crates/pretty-assertions), [others](https://lib.rs/development-tools/testing) | X |
+tools to code verification |     | X |
+tools to profiling | [applications](https://lib.rs/development-tools/profiling)  | X |
 integration with [LLVM](https://llvm.org/) | good | good |
-
 GCC | not yet implemented | a bit faster |
 
-cargo-bloat : Find out what takes most of the space in your executable
-cargo-tree :  Display a tree visualization of a dependency graph
+
+* Rust is best to learn for server side, systems, and backend developers.
+* Ownership system: for example, gpio pins are move only struct. To change the functionality from input to output, you give the input pin, and returns the output pin. This way, you can break everything by changing an already used pin.
+* High level: you have all the modern feature of rust: modules, iterators, generics... For example, thanks to trait, there is one code to drive a ssd1303 oled display over I2C on Linux and bare metal arm.
+* Enum: so powerful to model states.
+* Cargo: want a stack based vector? Just heapless ="0.3" on your Cargo.toml
+* Borrow checker: no more stack dangling pointer stored on your global variable.
+* Easy to use toolchain: you need rustup to build your firmware and... nothing more.
+
+### Helper Applications
+
+* cargo-bloat : Find out what takes most of the space in your executable
+* cargo-tree :  Display a tree visualization of a dependency graph
+
+### Resources 
+
+* https://github.com/rust-embedded/wg : Embedded development with Rust
+* https://github.com/rust-embedded/awesome-embedded-rust : List of resources related to embedded and low-level programming in the programming language Rust, including a list of useful crates.
+* https://benchmarksgame-team.pages.debian.net/benchmarksgame/fastest/gcc-rust.html : Benchmarks of C vs Rust
+* https://benchmarksgame-team.pages.debian.net/benchmarksgame/measurements/rust.html : Benchmarks of Rust programms
