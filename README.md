@@ -92,3 +92,37 @@ GCC | not yet implemented | a bit faster |
 * https://github.com/rust-embedded/awesome-embedded-rust : List of resources related to embedded and low-level programming in the programming language Rust, including a list of useful crates.
 * https://benchmarksgame-team.pages.debian.net/benchmarksgame/fastest/gcc-rust.html : Benchmarks of C vs Rust
 * https://benchmarksgame-team.pages.debian.net/benchmarksgame/measurements/rust.html : Benchmarks of Rust programms
+
+### Create containing both lib.rs and main.rs
+
+The easiest way to create a crate which contains a binary and library (such as your curl and libcurl example) is to create a folder src/bin in your project and place your a file that will serve as the entry point to your binary there (must contain a fn main() {}). In your example this would be src/bin/curl.rs.
+
+All of your "library" code would go in src/lib.rs (and additional modules).
+
+Finally, you'd add a section to your Cargo.toml describing where to find the binary.
+
+  [[bin]]
+  name = "curl"
+
+So the project layout would look like this (assuming we named the project curl-rs with cargo):
+
+  $ tree curl-rs
+  curl-rs
+  ├── bin
+  │   └── curl.rs
+  ├── Cargo.toml
+  └── src
+      └── lib.rs
+
+  2 directories, 3 files
+  
+In order to use the functionality defined in our lib.rs it's the same as if using an external dep:
+
+  // in src/bin/curl.rs
+  extern crate curl;
+
+  fn main() {
+      // Do stuff
+  }
+  
+Compiling this project will place a statically linked binary curl in target/{debug,release} as well as a libcurl.rlib which will be used if someone simply uses this project as a dep from something like crates.io.
