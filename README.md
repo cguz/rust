@@ -126,3 +126,7 @@ In order to use the functionality defined in our lib.rs it's the same as if usin
     }
   
 Compiling this project will place a statically linked binary curl in target/{debug,release} as well as a libcurl.rlib which will be used if someone simply uses this project as a dep from something like crates.io.
+
+### Create Objects 
+
+https://medium.com/analytics-vidhya/rust-adventures-from-java-class-to-rust-struct-1d63b66890cf
