@@ -130,3 +130,4 @@ Compiling this project will place a statically linked binary curl in target/{deb
 ### Create Objects 
 
 https://medium.com/analytics-vidhya/rust-adventures-from-java-class-to-rust-struct-1d63b66890cf
+https://stevedonovan.github.io/rust-gentle-intro/object-orientation.html
