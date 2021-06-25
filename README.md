@@ -127,7 +127,11 @@ In order to use the functionality defined in our lib.rs it's the same as if usin
   
 Compiling this project will place a statically linked binary curl in target/{debug,release} as well as a libcurl.rlib which will be used if someone simply uses this project as a dep from something like crates.io.
 
+### Create Modules
+
+* https://www.tutorialspoint.com/rust/rust_modules.htm#:~:text=A%20logical%20group%20of%20code%20is%20called%20a,executable%20project%20that%20has%20a%20main%20%28%29%20method.
+
 ### Create Objects 
 
-https://medium.com/analytics-vidhya/rust-adventures-from-java-class-to-rust-struct-1d63b66890cf
-https://stevedonovan.github.io/rust-gentle-intro/object-orientation.html
+* https://medium.com/analytics-vidhya/rust-adventures-from-java-class-to-rust-struct-1d63b66890cf
+* https://stevedonovan.github.io/rust-gentle-intro/object-orientation.html
