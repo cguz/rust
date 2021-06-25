@@ -101,28 +101,28 @@ All of your "library" code would go in src/lib.rs (and additional modules).
 
 Finally, you'd add a section to your Cargo.toml describing where to find the binary.
 
-  [[bin]]
-  name = "curl"
+    [[bin]]
+    name = "curl"
 
 So the project layout would look like this (assuming we named the project curl-rs with cargo):
 
-  $ tree curl-rs
-  curl-rs
-  ├── bin
-  │   └── curl.rs
-  ├── Cargo.toml
-  └── src
-      └── lib.rs
+    $ tree curl-rs
+    curl-rs
+    ├── bin
+    │   └── curl.rs
+    ├── Cargo.toml
+    └── src
+        └── lib.rs
 
-  2 directories, 3 files
+    2 directories, 3 files
   
 In order to use the functionality defined in our lib.rs it's the same as if using an external dep:
 
-  // in src/bin/curl.rs
-  extern crate curl;
+    // in src/bin/curl.rs
+    extern crate curl;
 
-  fn main() {
-      // Do stuff
-  }
+    fn main() {
+        // Do stuff
+    }
   
 Compiling this project will place a statically linked binary curl in target/{debug,release} as well as a libcurl.rlib which will be used if someone simply uses this project as a dep from something like crates.io.
