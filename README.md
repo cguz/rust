@@ -45,6 +45,7 @@
 ## Utils
 
 * translate Java to Rust: https://github.com/aschoerk/converter-page
+* https://play.rust-lang.org/
 
 ## Compare to C in embedded systems
 
