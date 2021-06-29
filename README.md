@@ -141,3 +141,22 @@ Compiling this project will place a statically linked binary curl in target/{deb
 
  * // println!("{:?}", parserResult);
  * dbg!(parserResult);
+
+### Return null
+
+You cannot return null in Rust, because there is no such concept in the language. Instead you should use Option<T>:
+
+    fn find_parent(&self, id: &mut String) -> Option<&NodeValue> {
+        if self.id == *id {
+            println!("{},{}", self.id, id);
+            return Some(self);
+        }
+
+        //This loop is pointless, I've kept it because it's in your original code
+        for child in &self.children {
+            println!("{:?}", child);
+            return child.find_parent(id);
+        }
+
+        None
+    }
