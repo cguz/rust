@@ -132,6 +132,28 @@ Compiling this project will place a statically linked binary curl in target/{deb
 
 * https://www.tutorialspoint.com/rust/rust_modules.htm#:~:text=A%20logical%20group%20of%20code%20is%20called%20a,executable%20project%20that%20has%20a%20main%20%28%29%20method.
 
+We can create a module in two ways:
+
+1. In a rust file: 
+
+        pub mod ddl3{
+          pub mod ddl3visitor{}
+        }
+
+  Meaning that we have a module ddl3 that inside use another module ddl3visitor.
+  
+2. In a rust file:
+    
+        pub mod pddl3;
+  
+   Then in a file pddl3.rs add the content of the module:
+   
+        pub mod ddl3visitor;
+    
+   Then, in a folder ddl3/ create the file pddl3visitor.rs with the content of the module.
+
+The two options can be combined.
+
 ### Create Objects 
 
 * https://medium.com/analytics-vidhya/rust-adventures-from-java-class-to-rust-struct-1d63b66890cf
