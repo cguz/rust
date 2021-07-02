@@ -182,3 +182,7 @@ You cannot return null in Rust, because there is no such concept in the language
 
         None
     }
+
+  ### How to access value in RefCell properly
+  
+  https://stackoverflow.com/questions/25297447/how-to-access-value-in-refcell-properly
