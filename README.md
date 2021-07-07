@@ -164,6 +164,58 @@ The two options can be combined.
  * // println!("{:?}", parserResult);
  * dbg!(parserResult);
 
+#### Debugging Project from VScode
+
+  * Install extension the **CodeLLDB** (A native debugger extension for VS Code).
+  * Open src/main.rs and place breakpoint to left of the line number 3 println!(“Hello, world!”)and press F5 or Run -> Start Debugging to start the debugger.
+  * VS Code will display a message stating Cannot start debugging because no launch configuration has been provided. Select default options in order to generate a launch file.
+
+### To build a project and create binary from VSCode
+
+In the command line, execute:
+
+    ❯ cargo build
+      Finished dev [unoptimized + debuginfo] target(s) in 0.02s
+    To execute the binary
+
+    ❯ cargo run
+    Finished dev [unoptimized + debuginfo] target(s) in 0.00s
+    Running `target/debug/hello_world`
+    Hello, world! 123
+    
+**Using Tasks**: To run VS Code task’s feature use Command+Shift+B.
+
+To setup tasks create .vscode/tasks.json file and populate with text below providing build and run task.
+
+    {
+      "version": "2.0.0",
+      "tasks": [{
+       "label": "cargo build",
+       "type": "shell",
+       "command": "cargo build",
+       "args": [],
+       "group": {
+         "kind": "build",
+         "isDefault": true
+       }
+      },
+      {
+          "label": "cargo run",
+          "type": "shell",
+          "command": "cargo",
+          "args": [
+            "run"
+            // "--release",
+            // "--",
+            // "arg1"
+          ],
+          "group": {
+            "kind": "build",
+            "isDefault": true
+          }
+         }]
+    }
+
 ### Return null
 
 You cannot return null in Rust, because there is no such concept in the language. Instead you should use Option<T>:
