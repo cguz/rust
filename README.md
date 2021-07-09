@@ -244,3 +244,7 @@ You cannot return null in Rust, because there is no such concept in the language
   
   * https://blog.thoughtram.io/references-in-rust/
   * https://blog.thoughtram.io/lifetimes-in-rust/
+
+### HashMap with general object
+  
+  https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=9892be55bae325096a652a97f2581c02
