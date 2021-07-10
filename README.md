@@ -35,6 +35,7 @@
    * cargo fmt
    
 * Cargo clippy: It helps to improve the code
+   * install in nightly with "cargo +nightly clippy"
    * cargo clippy 
 
 * Antlr for rust:
