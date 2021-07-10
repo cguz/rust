@@ -252,11 +252,11 @@ You cannot return null in Rust, because there is no such concept in the language
         None
     }
 
-  ### How to access value in RefCell properly
+### How to access value in RefCell properly
   
   https://stackoverflow.com/questions/25297447/how-to-access-value-in-refcell-properly
 
-  ### References and lifetimes
+### References and lifetimes
   
   * https://blog.thoughtram.io/references-in-rust/
   * https://blog.thoughtram.io/lifetimes-in-rust/
@@ -273,3 +273,30 @@ You cannot return null in Rust, because there is no such concept in the language
       fn main() {
           let silent = env::var("PV_SILENT").unwrap_or(String::new()).len() > 0;
           dbg!(silent);
+  
+### Read arguments from command line
+  
+    use clap::{App, Arg};
+
+    fn main() {
+        let matches = App::new("pipeviewer")
+            .arg(Arg::with_name("infile")).help("Read from a file")
+            .arg(
+                Arg::with_name("outfile")
+                    .short("o")
+                    .long("outfile")
+                    .takes_value(true)
+                    .help("Write output to a file instead of stdout")
+            )
+            .arg(Arg::with_name("silent")
+                .short("s")
+                .long("silent"))
+            .get_matches();
+
+        let infile = matches.value_of("infile").unwrap_or_default();
+    }
+  
+  In Cargo.toml add:
+  
+    [dependencies]
+    clap = "3.0.0-beta.2"
