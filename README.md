@@ -33,6 +33,9 @@
 
 * Cargo format: It formats automatically the code.
    * cargo fmt
+   
+* Cargo clippy: It helps to improve the code
+   * cargo clippy 
 
 * Antlr for rust:
    * [X] https://crates.io/crates/antlr-rust 
@@ -41,6 +44,14 @@
     * [X] Download the last release from github's repository https://github.com/rrevenantt/antlr4rust
     * [X] Store the grammar file
     * [X] Generate the parser java -jar <path to ANTLR4 tool> -Dlanguage=Rust MyGrammar.g4
+
+## Continous programming
+
+* Check the code before do commit: 
+  * vim .git/hook/pre-commit
+      
+        cargo fmt
+        exec cargo clippy -- -D warnings
 
 ## Cheets
 
