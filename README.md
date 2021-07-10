@@ -31,6 +31,9 @@
 * The Cargo book: Cargo is the Rust package manager. Cargo downloads your Rust package's dependencies, compiles your packages, makes distributable packages, and uploads them to crates.io, the Rust community’s package registry (this last part can be avoided).
    * https://doc.rust-lang.org/cargo/index.html 
 
+* Cargo format: It formats automatically the code.
+   * cargo fmt
+
 * Antlr for rust:
    * [X] https://crates.io/crates/antlr-rust 
  
