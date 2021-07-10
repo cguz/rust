@@ -248,3 +248,12 @@ You cannot return null in Rust, because there is no such concept in the language
 ### HashMap with general object
   
   https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=9892be55bae325096a652a97f2581c02
+  
+### Read an environment variable
+  
+      use std::env;
+      ..
+
+      fn main() {
+          let silent = env::var("PV_SILENT").unwrap_or(String::new()).len() > 0;
+          dbg!(silent);
