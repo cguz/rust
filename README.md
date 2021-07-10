@@ -52,6 +52,8 @@
       
         cargo fmt
         exec cargo clippy -- -D warnings
+        
+   * chmod a+x .git/hook/pre-commit
 
 ## Cheets
 
