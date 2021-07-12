@@ -295,6 +295,38 @@ You cannot return null in Rust, because there is no such concept in the language
         None
     }
 
+### Enables mutation inside an immutable struct.
+  
+We can do it with Cell<T>, which enables mutation inside an immutable struct. 
+  
+In other words, it enables “interior mutability”. Example took from https://doc.rust-lang.org/std/cell/struct.Cell.html
+
+    use std::cell::Cell;
+
+    struct SomeStruct {
+        regular_field: u8,
+        special_field: Cell<u8>,
+    }
+
+    let my_struct = SomeStruct {
+        regular_field: 0,
+        special_field: Cell::new(1),
+    };
+
+    let new_value = 100;
+
+    // ERROR: `my_struct` is immutable
+    // my_struct.regular_field = new_value;
+
+    // WORKS: although `my_struct` is immutable, `special_field` is a `Cell`,
+    // which can always be mutated
+    my_struct.special_field.set(new_value);
+    assert_eq!(my_struct.special_field.get(), new_value);
+  
+Other structure is CellRef : A mutable memory location with dynamically checked borrow rules.
+
+If you ever want the threaded versions, Arc replaces Rc and Mutex or RwLock replaces Cell/RefCel.
+  
 ### How to access value in RefCell properly
   
   https://stackoverflow.com/questions/25297447/how-to-access-value-in-refcell-properly
@@ -310,12 +342,12 @@ You cannot return null in Rust, because there is no such concept in the language
   
 ### Read an environment variable
   
-      use std::env;
-      ..
+    use std::env;
+    ..
 
-      fn main() {
-          let silent = env::var("PV_SILENT").unwrap_or(String::new()).len() > 0;
-          dbg!(silent);
+    fn main() {
+        let silent = env::var("PV_SILENT").unwrap_or(String::new()).len() > 0;
+        dbg!(silent);
   
 ### Read arguments from command line
   
