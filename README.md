@@ -173,7 +173,7 @@ We can create a module in two ways:
           pub mod ddl3visitor{}
         }
 
-  Meaning that we have a module ddl3 that inside use another module ddl3visitor.
+  Meaning that we have a module ddl3 that inside use a sub module ddl3visitor.
   
 2. In a rust file:
     
@@ -183,7 +183,7 @@ We can create a module in two ways:
    
         pub mod ddl3visitor;
     
-   Then, in a folder ddl3/ create the file pddl3visitor.rs with the content of the module.
+   Then, in a folder (module) ddl3/ create the file (submodule) pddl3visitor.rs with the content of the module.
 
 The two options can be combined.
 
