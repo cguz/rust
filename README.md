@@ -55,6 +55,33 @@
         
    * chmod a+x .git/hook/pre-commit
 
+## Versions X.Y.Z
+
+The X.Y.Z means:
+
+* X : Major 
+* Y : Minor 
+* Z : Patch 
+
+In Rust the values of X.Y.Z changes as follows:
+
+if X < 1 then 
+  * 0 : Major 
+  * Y : Minor = Breaking changes
+  * Z : Patch = Whatever
+
+if X >= 1 then 
+  * X : Major = Breaking change
+  * Y : Minor = Add functionality
+  * Z : Patch = Bug fixes
+
+## Generate doc
+
+* cargo +nightly doc --no-deps --open
+
+  --no-deps : by default cargo generate the documentation of all the dependencies
+  --open : one finish open it in the browser
+
 ## Cheets
 
 * Compile with no warnings:  alias test='RUSTFLAGS=-Awarnings cargo +nightly test -- --nocapture'
