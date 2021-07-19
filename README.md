@@ -375,3 +375,7 @@ If you ever want the threaded versions, Arc replaces Rc and Mutex or RwLock repl
   
     [dependencies]
     clap = "3.0.0-beta.2"
+  
+### LinkedHashMap example
+  
+  https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=21b4722c25dff6d28fcdf48e4c4e4166
