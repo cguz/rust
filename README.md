@@ -378,4 +378,5 @@ If you ever want the threaded versions, Arc replaces Rc and Mutex or RwLock repl
   
 ### LinkedHashMap example
   
-  https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=21b4722c25dff6d28fcdf48e4c4e4166
+  * https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=21b4722c25dff6d28fcdf48e4c4e4166
+  * https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=15f2cea99e1c8228091a98b49a9b4996
