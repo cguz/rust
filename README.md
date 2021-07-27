@@ -335,10 +335,6 @@ If you ever want the threaded versions, Arc replaces Rc and Mutex or RwLock repl
   
   * https://blog.thoughtram.io/references-in-rust/
   * https://blog.thoughtram.io/lifetimes-in-rust/
-
-### HashMap with general object
-  
-  https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=9892be55bae325096a652a97f2581c02
   
 ### Read an environment variable
   
@@ -376,7 +372,15 @@ If you ever want the threaded versions, Arc replaces Rc and Mutex or RwLock repl
     [dependencies]
     clap = "3.0.0-beta.2"
   
+### HashMap with general object
+  
+  https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=9892be55bae325096a652a97f2581c02
+  
 ### LinkedHashMap example
   
   * https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=21b4722c25dff6d28fcdf48e4c4e4166
   * https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=15f2cea99e1c8228091a98b49a9b4996
+  
+### Trait example
+  
+  https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=dd89d5fbaec8ee91f4a315c46a9a3f9a
