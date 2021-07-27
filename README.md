@@ -383,6 +383,6 @@ If you ever want the threaded versions, Arc replaces Rc and Mutex or RwLock repl
   
 ### Trait example
   
-  * https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=dd89d5fbaec8ee91f4a315c46a9a3f9a
-  * https://medium.com/analytics-vidhya/rust-adventures-from-java-class-to-rust-struct-1d63b66890cf
-  * https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=8f7ce846faf04eac958b4fcda3f781c4
+  * OOP Java: https://medium.com/analytics-vidhya/rust-adventures-from-java-class-to-rust-struct-1d63b66890cf
+  * Element as a trait, others as Instance: https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=636db8a49ac2c266450e8f6ac335b839
+  * Element as Instance, other as traits: https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=cd6a6a5accdd4ab06ac46bc90e3ef4dc
