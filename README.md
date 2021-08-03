@@ -383,7 +383,17 @@ If you ever want the threaded versions, Arc replaces Rc and Mutex or RwLock repl
   
 ### Trait example
   
-  * OOP Java: https://medium.com/analytics-vidhya/rust-adventures-from-java-class-to-rust-struct-1d63b66890cf
-  * Element as a trait, others as Instance: https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=636db8a49ac2c266450e8f6ac335b839
-  * Element as Instance, other as traits: https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=cd6a6a5accdd4ab06ac46bc90e3ef4dc
-  * Element as Instance, other as traits. With Enum: https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=afb01a39b3641afd665f410d1c7e497f
+  * [OOP Java](https://medium.com/analytics-vidhya/rust-adventures-from-java-class-to-rust-struct-1d63b66890cf)
+  * [Element as a trait, others as Instance](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=636db8a49ac2c266450e8f6ac335b839
+  * [Element as Instance, other as traits](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=cd6a6a5accdd4ab06ac46bc90e3ef4dc)
+  * [Element as Instance, other as traits. With Enum](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=afb01a39b3641afd665f410d1c7e497f).
+  
+### [Cast beteween two Traits](https://stackoverflow.com/questions/34419561/can-i-cast-between-two-traits). 
+  
+  No, it is not possible. Some solutions are:
+  
+  * If you own these traits, then you can add **as_foo** to the **Bar** trait and vice versa. [playground](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=8b92e55d587228bb55e70ddcab6a7cb5)
+  * You could create an enum that holds either a **Box\<dyn Foo>** or a **Box\<dyn Bar>** and then pattern match. 
+  * You could move the body of **bar** into the body of **foo** for that implementation.
+  * You could implement a third trait **Quux** where calling **\<FooStruct as Quux>::quux** calls **Foo::foo** and calling **\<BarStruct as Quux>::quux** calls **Bar::foo** followed by **Bar::bar**.
+    
