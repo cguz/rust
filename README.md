@@ -10,6 +10,8 @@
    * https://developers.diem.com/main/docs/coding-guidelines
    * Rust Style Guide https://github.com/rust-dev-tools/fmt-rfcs/blob/master/guide/guide.md), 
    * API Guidelines https://rust-lang.github.io/api-guidelines/about.html
+   * API documentation conventions: https://rust-lang.github.io/rfcs/1574-more-api-documentation-conventions.html#appendix-a-full-conventions-text
+   * Making useful documentation comments: https://doc.rust-lang.org/book/ch14-02-publishing-to-crates-io.html#making-useful-documentation-comments
 
 * Rust documentations: 
    * [X] https://foundation.rust-lang.org/
