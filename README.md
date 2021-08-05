@@ -399,3 +399,28 @@ If you ever want the threaded versions, Arc replaces Rc and Mutex or RwLock repl
   * You could move the body of **bar** into the body of **foo** for that implementation.
   * You could implement a third trait **Quux** where calling **\<FooStruct as Quux>::quux** calls **Foo::foo** and calling **\<BarStruct as Quux>::quux** calls **Bar::foo** followed by **Bar::bar**.
     
+### Share code between multiple Cargo projects
+  
+The way to do this is to make a library:
+
+cargo new --lib my_library
+Instead of a src/main.rs, this will have a src/lib.rs as its “root” module. Any types/functions/submodules in this root module that are marked pub will be usable from within other Cargo projects. For example:
+
+    // my_library/src/lib.rs
+    pub fn do_stuff() {
+       println!("Hi");
+    }
+  
+To use this code from one of your binary projects like my_project, you can put the following in my_project/Cargo.toml:
+
+    [dependencies]
+    my_library = { path = "../my_library" }
+
+(The path value can be either an absolute path or a relative path to the my_library directory.)
+
+Now, everywhere within my_project, you can access public items from the my_library crate, just like you can from other libraries:
+
+    // my_project/src/main.rs
+    fn main() {
+        my_library::do_stuff();
+    }
