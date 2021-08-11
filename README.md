@@ -28,6 +28,7 @@
 * Rust installation:
     * [X] Rust programm: https://rustup.rs/
     * [X] IDE Eclipse: https://github.com/eclipse/corrosion or from the official eclipse installer.
+    * [X] [IntelliJ IDEA](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-quick-start.html): The best one to work is IntelliJ IDEA with the Rust pluging. 
     * [X] Overview about the state of Rust support by text editors and their integrated: https://areweideyet.com/
 
 * The Cargo book: Cargo is the Rust package manager. Cargo downloads your Rust package's dependencies, compiles your packages, makes distributable packages, and uploads them to crates.io, the Rust community’s package registry (this last part can be avoided).
