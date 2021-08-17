@@ -425,3 +425,9 @@ Now, everywhere within my_project, you can access public items from the my_libra
     fn main() {
         my_library::do_stuff();
     }
+
+### Patterns
+  
+* [Enum wrapper for traits](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=501693ad07bda2f1e83dc31d230f8a8a)
+  
+  
