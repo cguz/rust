@@ -416,6 +416,41 @@ Consider these two functions:
   
 Ignoring the fact that they don’t do anything, the function f will accept any two arguments that implement the Debug trait, even if they are two different types. On the other hand, g will only accept two arguments of the same type, but that type can be any type that implements Debug.
   
+### Returning traits
+
+We can use traits as return types from functions. There are two different ways to do this: impl Trait and Box<dyn Trait>. Again, the differences are subtle but important.
+
+      use std::fmt::Debug;
+
+      fn dyn_trait(n: u8) -> Box<dyn Debug> {
+          todo!()
+      }
+
+      fn impl_trait(n: u8) -> impl Debug {
+          todo!()
+      }
+  
+The dyn_trait function can return any number of types that implement the Debug trait and can even return a different type depending on the input argument. This is known as a trait object. “The Rust Programming Language” book has a section on using trait objects for dynamic dispatch if you want to delve further.
+
+The impl_trait method, on the other hand, can only return a single type that implements the Debug trait. In other words, the function will always return the same type.
+
+While this difference may make impl Trait appear less useful than trait objects, it has a very important feature (in addition to being easier to type and to work with): you can use it to return iterators and closures. This is explained further in the book’s chapter on traits, “Returning Types that Implement Traits.”
+  
+### Trait combos
+  
+T: Trait1 + Trait2 + Trait3.
+
+Source: https://blog.logrocket.com/rust-traits-a-deep-dive/ 
+  
+### Associated Types
+  
+    trait Associated {
+        type T;
+        fn get(&self) -> Self::T;
+    }
+  
+Source: https://blog.thomasheartman.com/posts/on-generics-and-associated-types
+
 ### Share code between multiple Cargo projects
   
 The way to do this is to make a library:
