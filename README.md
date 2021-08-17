@@ -428,6 +428,6 @@ Now, everywhere within my_project, you can access public items from the my_libra
 
 ### Patterns
   
-* [Enum wrapper for traits](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=501693ad07bda2f1e83dc31d230f8a8a)
+* [Enum wrapper for traits](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=2f40c19dfcdec7978fd7c716639b1388)
   
   
