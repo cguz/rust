@@ -400,6 +400,22 @@ If you ever want the threaded versions, Arc replaces Rc and Mutex or RwLock repl
   * You could move the body of **bar** into the body of **foo** for that implementation.
   * You could implement a third trait **Quux** where calling **\<FooStruct as Quux>::quux** calls **Foo::foo** and calling **\<BarStruct as Quux>::quux** calls **Bar::foo** followed by **Bar::bar**.
     
+### Traits in function arguments and trait bounds
+  
+Consider these two functions:
+
+      use std::fmt::Debug;
+
+      fn f(a: &Debug, b: &Debug) {
+          todo!()
+      }
+
+      fn g<T: Debug>(a: &T, b: &T) {
+          todo!()
+      }
+  
+Ignoring the fact that they don’t do anything, the function f will accept any two arguments that implement the Debug trait, even if they are two different types. On the other hand, g will only accept two arguments of the same type, but that type can be any type that implements Debug.
+  
 ### Share code between multiple Cargo projects
   
 The way to do this is to make a library:
