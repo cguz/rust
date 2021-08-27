@@ -481,4 +481,6 @@ Now, everywhere within my_project, you can access public items from the my_libra
   
 * [Enum wrapper for traits](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=2f40c19dfcdec7978fd7c716639b1388). Source https://bennetthardwick.com/dont-use-boxed-trait-objects-for-struct-internals
   
+## Docker file example
   
+  https://github.com/integer32llc/rust-playground/blob/master/compiler/base/Dockerfile
