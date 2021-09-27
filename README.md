@@ -484,5 +484,9 @@ Now, everywhere within my_project, you can access public items from the my_libra
 ## Docker file example
   
   https://github.com/integer32llc/rust-playground/blob/master/compiler/base/Dockerfile
+  
+## Create GUI 
+  
+  https://github.com/iced-rs/iced
 
   https://github.com/ferrous-systems/teaching-material/blob/master/presentations/smart-pointers/slides.adoc
