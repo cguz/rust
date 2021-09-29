@@ -1,63 +1,32 @@
 # Learning the Rust Programming Language
 
-## Code examples
-
-* Parser
-
 ## Documentations
 
-* Code Guidelines:
-   * https://developers.diem.com/main/docs/coding-guidelines
-   * Rust Style Guide https://github.com/rust-dev-tools/fmt-rfcs/blob/master/guide/guide.md), 
-   * API Guidelines https://rust-lang.github.io/api-guidelines/about.html
-   * API documentation conventions: https://rust-lang.github.io/rfcs/1574-more-api-documentation-conventions.html#appendix-a-full-conventions-text
-   * Making useful documentation comments: https://doc.rust-lang.org/book/ch14-02-publishing-to-crates-io.html#making-useful-documentation-comments
+* Code / API Guidelines:
+   * [X] [Rust API Guidelines](https://rust-lang.github.io/api-guidelines/about.html)
+   * [X] [API documentation conventions](https://rust-lang.github.io/rfcs/1574-more-api-documentation-conventions.html#appendix-a-full-conventions-text)
+   * [X] [Making useful documentation comments](https://doc.rust-lang.org/book/ch14-02-publishing-to-crates-io.html#making-useful-documentation-comments)
+   * [Rust Style Guide](https://github.com/rust-dev-tools/fmt-rfcs/blob/master/guide/guide.md), 
 
 * Rust documentations: 
-   * [X] https://foundation.rust-lang.org/
-   * Learn about Rust in https://www.rust-lang.org/learn 
-   * [X] The book https://doc.rust-lang.org/book/index.html 
-   * Learn by examples https://doc.rust-lang.org/rust-by-example/index.html 
-   * [X] Rustlings code: https://github.com/rust-lang/rustlings/ .
+   * [X] [The book](https://doc.rust-lang.org/book/index.html)
+   * [X] Cheat Sheets: [Cheats](https://cheats.rs/), [Programming Idioms](https://programming-idioms.org/cheatsheet/Rust)
+   * [Rust Lang Foundation](https://foundation.rust-lang.org/)
+   * [Learn about Rust](https://www.rust-lang.org/learn)
+   * [Learn by examples](https://doc.rust-lang.org/rust-by-example/index.html)
+   * [Rustlings code](https://github.com/rust-lang/rustlings/)
       It is a requirement to install msvc C++ tools from https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16
-   * [X] Cheat Sheets: https://cheats.rs/, https://programming-idioms.org/cheatsheet/Rust
-    
-* Rust libraries and applications:
-   * https://lib.rs/
+
+* [The Cargo book](https://doc.rust-lang.org/cargo/index.html): Cargo is the Rust package manager. Cargo downloads your Rust package's dependencies, compiles your packages, makes distributable packages, and uploads them to crates.io, the Rust community’s package registry (this last part can be avoided).
+   
+## Installation
  
-* Rust installation:
-    * [X] Rust programm: https://rustup.rs/
-    * [X] IDE Eclipse: https://github.com/eclipse/corrosion or from the official eclipse installer.
+* Rust:
+    * [X] [Rust programm](https://rustup.rs/)
     * [X] [IntelliJ IDEA](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-quick-start.html): The best one to work is IntelliJ IDEA with the Rust pluging. 
     * [X] Overview about the state of Rust support by text editors and their integrated: https://areweideyet.com/
-
-* The Cargo book: Cargo is the Rust package manager. Cargo downloads your Rust package's dependencies, compiles your packages, makes distributable packages, and uploads them to crates.io, the Rust community’s package registry (this last part can be avoided).
-   * https://doc.rust-lang.org/cargo/index.html 
-
-* Cargo format: It formats automatically the code.
-   * cargo fmt
+    * [IDE Eclipse](https://github.com/eclipse/corrosion) or from the official eclipse installer.
    
-* Cargo clippy: It helps to improve the code
-   * cargo +nightly clippy
-
-* Antlr for rust:
-   * [X] https://crates.io/crates/antlr-rust 
- 
-   Steps to use:
-    * [X] Download the last release from github's repository https://github.com/rrevenantt/antlr4rust
-    * [X] Store the grammar file
-    * [X] Generate the parser java -jar <path to ANTLR4 tool> -Dlanguage=Rust MyGrammar.g4
-
-## Continous programming
-
-* Check the code before do commit: 
-  * vim .git/hook/pre-commit
-      
-        cargo fmt
-        exec cargo clippy -- -D warnings
-        
-   * chmod a+x .git/hook/pre-commit
-
 ## Versions X.Y.Z
 
 The X.Y.Z means:
@@ -78,22 +47,24 @@ if X >= 1 then
   * Y : Minor = Add functionality
   * Z : Patch = Bug fixes
 
-## Generate doc
-
-* cargo +nightly doc --no-deps --open
-
-  --no-deps : by default cargo generate the documentation of all the dependencies
-  --open : one finish open it in the browser
-
-## Cheets
-
-* Compile with no warnings:  alias test='RUSTFLAGS=-Awarnings cargo +nightly test -- --nocapture'
-
 ## Utils
 
 * translate Java to Rust: https://github.com/aschoerk/converter-page
 * https://play.rust-lang.org/
 
+## Libraries
+
+* Rust libraries and applications:
+   * [X] [Lib](https://lib.rs/)
+
+* Antlr for rust:
+   * [X] https://crates.io/crates/antlr-rust 
+ 
+   Steps to use:
+    * [X] Download the last release from github's repository https://github.com/rrevenantt/antlr4rust
+    * [X] Store the grammar file
+    * [X] Generate the parser java -jar <path to ANTLR4 tool> -Dlanguage=Rust MyGrammar.g4
+  
 ## Compare to C in embedded systems
 
 | features | Rust      | C |
@@ -129,19 +100,44 @@ GCC | not yet implemented | a bit faster |
 * Borrow checker: no more stack dangling pointer stored on your global variable.
 * Easy to use toolchain: you need rustup to build your firmware and... nothing more.
 
-### Helper Applications
+### Benchmarks
 
-* cargo-bloat : Find out what takes most of the space in your executable
-* cargo-tree :  Display a tree visualization of a dependency graph
+* Benchmarks of C vs Rust: https://benchmarksgame-team.pages.debian.net/benchmarksgame/fastest/gcc-rust.html 
+* Benchmarks of Rust programms: https://benchmarksgame-team.pages.debian.net/benchmarksgame/measurements/rust.html 
 
-### Resources 
+### More Resources 
 
-* https://github.com/rust-embedded/wg : Embedded development with Rust
-* https://github.com/rust-embedded/awesome-embedded-rust : List of resources related to embedded and low-level programming in the programming language Rust, including a list of useful crates.
-* https://benchmarksgame-team.pages.debian.net/benchmarksgame/fastest/gcc-rust.html : Benchmarks of C vs Rust
-* https://benchmarksgame-team.pages.debian.net/benchmarksgame/measurements/rust.html : Benchmarks of Rust programms
+* Embedded development with Rust: https://github.com/rust-embedded/wg
+* List of resources related to embedded and low-level programming in the programming language Rust, including a list of useful crates: https://github.com/rust-embedded/awesome-embedded-rust 
 
-### Create containing both lib.rs and main.rs
+
+# Useful Code
+   
+## General
+
+* formats automatically the code: cargo fmt
+   
+* improve the code: cargo +nightly clippy
+   
+* Generate doc: cargo +nightly doc --no-deps --open
+          --no-deps : by default cargo generate the documentation of all the dependencies
+          --open : one finish open it in the browser
+          
+* Compile with no warnings: alias test='RUSTFLAGS=-Awarnings cargo +nightly test -- --nocapture'
+* Find out what takes most of the space in your executable: cargo-bloat 
+* Display a tree visualization of a dependency graph: cargo-tree 
+
+## Continous programming
+
+* Check the code before do commit: 
+  * vim .git/hook/pre-commit
+      
+        cargo fmt
+        exec cargo clippy -- -D warnings
+        
+   * chmod a+x .git/hook/pre-commit
+
+## Create containing both lib.rs and main.rs
 
 The easiest way to create a crate which contains a binary and library (such as your curl and libcurl example) is to create a folder src/bin in your project and place your a file that will serve as the entry point to your binary there (must contain a fn main() {}). In your example this would be src/bin/curl.rs.
 
@@ -191,7 +187,7 @@ If we do this, we need to specify which binary to run on the command line when y
     $ cargo run --bin curl2
     $ cargo run --bin curl3
 
-### Create Modules
+## Create Modules
 
 * https://www.tutorialspoint.com/rust/rust_modules.htm#:~:text=A%20logical%20group%20of%20code%20is%20called%20a,executable%20project%20that%20has%20a%20main%20%28%29%20method.
 
@@ -217,23 +213,23 @@ We can create a module in two ways:
 
 The two options can be combined.
 
-### Create Objects 
+## Create Objects 
 
 * https://medium.com/analytics-vidhya/rust-adventures-from-java-class-to-rust-struct-1d63b66890cf
 * https://stevedonovan.github.io/rust-gentle-intro/object-orientation.html
 
-### Debug 
+## Debug 
 
  * // println!("{:?}", parserResult);
  * dbg!(parserResult);
 
-#### Debugging Project from VScode
+### Debugging Project from VScode
 
   * Install extension the **CodeLLDB** (A native debugger extension for VS Code).
   * Open src/main.rs and place breakpoint to left of the line number 3 println!(“Hello, world!”)and press F5 or Run -> Start Debugging to start the debugger.
   * VS Code will display a message stating Cannot start debugging because no launch configuration has been provided. Select default options in order to generate a launch file.
 
-### To build a project and create binary from VSCode
+## To build a project and create binary from VSCode
 
 In the command line, execute:
 
@@ -279,7 +275,7 @@ To setup tasks create .vscode/tasks.json file and populate with text below provi
          }]
     }
 
-### Return null
+## Return null
 
 You cannot return null in Rust, because there is no such concept in the language. Instead you should use Option<T>:
 
@@ -298,7 +294,7 @@ You cannot return null in Rust, because there is no such concept in the language
         None
     }
 
-### Enables mutation inside an immutable struct.
+## Enables mutation inside an immutable struct.
   
 We can do it with Cell<T>, which enables mutation inside an immutable struct. 
   
@@ -330,16 +326,16 @@ Other structure is CellRef : A mutable memory location with dynamically checked 
 
 If you ever want the threaded versions, Arc replaces Rc and Mutex or RwLock replaces Cell/RefCel.
   
-### How to access value in RefCell properly
+## How to access value in RefCell properly
   
   https://stackoverflow.com/questions/25297447/how-to-access-value-in-refcell-properly
 
-### References and lifetimes
+## References and lifetimes
   
   * https://blog.thoughtram.io/references-in-rust/
   * https://blog.thoughtram.io/lifetimes-in-rust/
   
-### Read an environment variable
+## Read an environment variable
   
     use std::env;
     ..
@@ -348,7 +344,7 @@ If you ever want the threaded versions, Arc replaces Rc and Mutex or RwLock repl
         let silent = env::var("PV_SILENT").unwrap_or(String::new()).len() > 0;
         dbg!(silent);
   
-### Read arguments from command line
+## Read arguments from command line
   
     use clap::{App, Arg};
 
@@ -375,23 +371,23 @@ If you ever want the threaded versions, Arc replaces Rc and Mutex or RwLock repl
     [dependencies]
     clap = "3.0.0-beta.2"
   
-### HashMap with general object
+## HashMap with general object
   
   https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=9892be55bae325096a652a97f2581c02
   
-### LinkedHashMap example
+## LinkedHashMap example
   
   * https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=21b4722c25dff6d28fcdf48e4c4e4166
   * https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=15f2cea99e1c8228091a98b49a9b4996
   
-### Trait example
+## Trait example
   
   * [OOP Java](https://medium.com/analytics-vidhya/rust-adventures-from-java-class-to-rust-struct-1d63b66890cf)
   * [Element as a trait, others as Instance](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=636db8a49ac2c266450e8f6ac335b839
   * [Element as Instance, other as traits](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=cd6a6a5accdd4ab06ac46bc90e3ef4dc)
   * [Element as Instance, other as traits. With Enum](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=afb01a39b3641afd665f410d1c7e497f).
   
-### [Cast beteween two Traits](https://stackoverflow.com/questions/34419561/can-i-cast-between-two-traits). 
+## [Cast beteween two Traits](https://stackoverflow.com/questions/34419561/can-i-cast-between-two-traits). 
   
   No, it is not possible. Some solutions are:
   
@@ -400,7 +396,7 @@ If you ever want the threaded versions, Arc replaces Rc and Mutex or RwLock repl
   * You could move the body of **bar** into the body of **foo** for that implementation.
   * You could implement a third trait **Quux** where calling **\<FooStruct as Quux>::quux** calls **Foo::foo** and calling **\<BarStruct as Quux>::quux** calls **Bar::foo** followed by **Bar::bar**.
     
-### Traits in function arguments and trait bounds
+## Traits in function arguments and trait bounds
   
 Consider these two functions:
 
@@ -416,7 +412,7 @@ Consider these two functions:
   
 Ignoring the fact that they don’t do anything, the function f will accept any two arguments that implement the Debug trait, even if they are two different types. On the other hand, g will only accept two arguments of the same type, but that type can be any type that implements Debug.
   
-### Returning traits
+## Returning traits
 
 We can use traits as return types from functions. There are two different ways to do this: impl Trait and Box<dyn Trait>. Again, the differences are subtle but important.
 
@@ -436,13 +432,13 @@ The impl_trait method, on the other hand, can only return a single type that imp
 
 While this difference may make impl Trait appear less useful than trait objects, it has a very important feature (in addition to being easier to type and to work with): you can use it to return iterators and closures. This is explained further in the book’s chapter on traits, “Returning Types that Implement Traits.”
   
-### Trait combos
+## Trait combos
   
 T: Trait1 + Trait2 + Trait3.
 
 Source: https://blog.logrocket.com/rust-traits-a-deep-dive/ 
   
-### Associated Types
+## Associated Types
   
     trait Associated {
         type T;
@@ -451,7 +447,7 @@ Source: https://blog.logrocket.com/rust-traits-a-deep-dive/
   
 Source: https://blog.thomasheartman.com/posts/on-generics-and-associated-types
 
-### Share code between multiple Cargo projects
+## Share code between multiple Cargo projects
   
 The way to do this is to make a library:
 
@@ -477,7 +473,7 @@ Now, everywhere within my_project, you can access public items from the my_libra
         my_library::do_stuff();
     }
 
-### Patterns
+## Patterns
   
 * [Enum wrapper for traits](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=2f40c19dfcdec7978fd7c716639b1388). Source https://bennetthardwick.com/dont-use-boxed-trait-objects-for-struct-internals
   
