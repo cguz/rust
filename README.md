@@ -127,7 +127,7 @@ GCC | not yet implemented | a bit faster |
 * List of resources related to embedded and low-level programming in the programming language Rust, including a list of useful crates: https://github.com/rust-embedded/awesome-embedded-rust 
 
 
-# Useful Code
+# Additional knowledge
 
 ## Continous programming
 
