@@ -11,23 +11,25 @@
 * Rust documentations: 
    * [X] [The book](https://doc.rust-lang.org/book/index.html)
    * [X] Cheat Sheets: [Cheats](https://cheats.rs/), [Programming Idioms](https://programming-idioms.org/cheatsheet/Rust)
+   * [X] [Learn by examples](https://doc.rust-lang.org/rust-by-example/index.html)
    * [Rust Lang Foundation](https://foundation.rust-lang.org/)
    * [Learn about Rust](https://www.rust-lang.org/learn)
-   * [Learn by examples](https://doc.rust-lang.org/rust-by-example/index.html)
    * [Rustlings code](https://github.com/rust-lang/rustlings/)
       It is a requirement to install msvc C++ tools from https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16
 
 * [The Cargo book](https://doc.rust-lang.org/cargo/index.html): Cargo is the Rust package manager. Cargo downloads your Rust package's dependencies, compiles your packages, makes distributable packages, and uploads them to crates.io, the Rust community’s package registry (this last part can be avoided).
    
 ## Installation
- 
-* Rust:
-    * [X] [Rust programm](https://rustup.rs/)
-    * [X] [IntelliJ IDEA](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-quick-start.html): The best one to work is IntelliJ IDEA with the Rust pluging. 
+
+  * [X] [Rust programm](https://rustup.rs/)
+  * IDEs:
     * [X] Overview about the state of Rust support by text editors and their integrated: https://areweideyet.com/
+    * [X] [IntelliJ IDEA](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-quick-start.html): The best one to work is IntelliJ IDEA with the Rust pluging. 
     * [IDE Eclipse](https://github.com/eclipse/corrosion) or from the official eclipse installer.
-   
+
 ## Versions X.Y.Z
+
+How to specify the versions of a Cargo package.
 
 The X.Y.Z means:
 
@@ -47,14 +49,28 @@ if X >= 1 then
   * Y : Minor = Add functionality
   * Z : Patch = Bug fixes
 
+## More useful code with Cargo
+
+* formats automatically the code: **cargo fmt**
+   
+* improve the code: **cargo +nightly clippy**
+   
+* Generate doc: **cargo +nightly doc --no-deps --open**
+          --no-deps : by default cargo generate the documentation of all the dependencies
+          --open : one finish open it in the browser
+          
+* Compile with no warnings: **alias test='RUSTFLAGS=-Awarnings cargo +nightly test -- --nocapture'**
+* Find out what takes most of the space in your executable: **cargo-bloat**
+* Display a tree visualization of a dependency graph: **cargo-tree**
+
 ## Utils
 
-* translate Java to Rust: https://github.com/aschoerk/converter-page
-* https://play.rust-lang.org/
+* [Play Rust](https://play.rust-lang.org/)
+* [Translate Java to Rust](https://github.com/cguz/java-to-rust)
 
 ## Libraries
 
-* Rust libraries and applications:
+* Find rust libraries and applications:
    * [X] [Lib](https://lib.rs/)
 
 * Antlr for rust:
@@ -112,20 +128,6 @@ GCC | not yet implemented | a bit faster |
 
 
 # Useful Code
-   
-## General
-
-* formats automatically the code: cargo fmt
-   
-* improve the code: cargo +nightly clippy
-   
-* Generate doc: cargo +nightly doc --no-deps --open
-          --no-deps : by default cargo generate the documentation of all the dependencies
-          --open : one finish open it in the browser
-          
-* Compile with no warnings: alias test='RUSTFLAGS=-Awarnings cargo +nightly test -- --nocapture'
-* Find out what takes most of the space in your executable: cargo-bloat 
-* Display a tree visualization of a dependency graph: cargo-tree 
 
 ## Continous programming
 
