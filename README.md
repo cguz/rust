@@ -1,5 +1,43 @@
 # Learning the Rust Programming Language
 
+## Table of Contents  
+  - [Documentations](#documentations)
+  - [Installation](#installation)
+  - [Versions X.Y.Z](#versions-xyz)
+  - [More useful code with Cargo](#more-useful-code-with-cargo)
+  - [Utils](#utils)
+  - [Libraries](#libraries)
+  - [Compare to C in embedded systems](#compare-to-c-in-embedded-systems)
+    - [Benchmarks](#benchmarks)
+    - [More Resources](#more-resources)
+  - [Additional knowledge](#additional-knowledge)
+    - [Continous programming](#continous-programming)
+    - [Create containing both lib.rs and main.rs](#create-containing-both-librs-and-mainrs)
+    - [Create Modules](#create-modules)
+    - [Create Objects](#create-objects)
+    - [Debug](#debug)
+      - [Debugging Project from VScode](#debugging-project-from-vscode)
+    - [To build a project and create binary from VSCode](#to-build-a-project-and-create-binary-from-vscode)
+    - [Return null](#return-null)
+    - [Enables mutation inside an immutable struct.](#enables-mutation-inside-an-immutable-struct)
+    - [How to access value in RefCell properly](#how-to-access-value-in-refcell-properly)
+    - [References and lifetimes](#references-and-lifetimes)
+    - [Read an environment variable](#read-an-environment-variable)
+    - [Read arguments from command line](#read-arguments-from-command-line)
+    - [HashMap with general object](#hashmap-with-general-object)
+    - [LinkedHashMap example](#linkedhashmap-example)
+    - [Trait example](#trait-example)
+    - [Cast beteween two Traits](#cast-beteween-two-traits)
+    - [Traits in function arguments and trait bounds](#traits-in-function-arguments-and-trait-bounds)
+    - [Returning traits](#returning-traits)
+    - [Trait combos](#trait-combos)
+    - [Associated Types](#associated-types)
+    - [Share code between multiple Cargo projects](#share-code-between-multiple-cargo-projects)
+    - [Patterns](#patterns)
+    - [Docker file example](#docker-file-example)
+    - [Create GUI](#create-gui)
+    - [Draw macro](#draw-macro)
+
 ## Documentations
 
 * Code / API Guidelines:
@@ -125,7 +163,6 @@ GCC | not yet implemented | a bit faster |
 
 * Embedded development with Rust: https://github.com/rust-embedded/wg
 * List of resources related to embedded and low-level programming in the programming language Rust, including a list of useful crates: https://github.com/rust-embedded/awesome-embedded-rust 
-
 
 # Additional knowledge
 
@@ -336,7 +373,7 @@ If you ever want the threaded versions, Arc replaces Rc and Mutex or RwLock repl
   
   * https://blog.thoughtram.io/references-in-rust/
   * https://blog.thoughtram.io/lifetimes-in-rust/
-  
+ 
 ## Read an environment variable
   
     use std::env;
@@ -389,7 +426,9 @@ If you ever want the threaded versions, Arc replaces Rc and Mutex or RwLock repl
   * [Element as Instance, other as traits](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=cd6a6a5accdd4ab06ac46bc90e3ef4dc)
   * [Element as Instance, other as traits. With Enum](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=afb01a39b3641afd665f410d1c7e497f).
   
-## [Cast beteween two Traits](https://stackoverflow.com/questions/34419561/can-i-cast-between-two-traits). 
+## Cast beteween two Traits. 
+  
+  Source from: https://stackoverflow.com/questions/34419561/can-i-cast-between-two-traits
   
   No, it is not possible. Some solutions are:
   
@@ -489,7 +528,6 @@ Now, everywhere within my_project, you can access public items from the my_libra
 
   https://github.com/ferrous-systems/teaching-material/blob/master/presentations/smart-pointers/slides.adoc
 
-  
 ## Draw macro
   
   https://lukaslueg.github.io/macro_railroad_wasm_demo/
