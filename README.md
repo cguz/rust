@@ -531,3 +531,7 @@ Now, everywhere within my_project, you can access public items from the my_libra
 ## Draw macro
   
   https://lukaslueg.github.io/macro_railroad_wasm_demo/
+  
+## Implement Self-referential types
+  
+  https://users.rust-lang.org/t/how-can-we-teach-people-about-self-referential-types/65362
