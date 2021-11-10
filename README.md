@@ -60,7 +60,7 @@
 ## Installation
 
   * [X] [Rust programm](https://rustup.rs/)
-  * IDEs:
+  * [IDEs](https://www.rust-lang.org/tools):
     * [X] Overview about the state of Rust support by text editors and their integrated: https://areweideyet.com/
     * [X] [IntelliJ IDEA](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-quick-start.html): The best one to work is IntelliJ IDEA with the Rust pluging. 
     * [IDE Eclipse](https://github.com/eclipse/corrosion) or from the official eclipse installer.
@@ -138,7 +138,7 @@ better documentation | X  |  |
 bitwise operation over register values [1](https://opensource.com/article/20/1/c-vs-rust-abstractions) | easy and secure to implement | complex to implement |
 coding standards for programming critical systems | There is nothing, but there are some [resources](https://github.com/rust-embedded/awesome-embedded-rust)  | X |
 easy to verify and catch bugs | at compile-time | hard |
-tools to debug | quite hard and [less app](https://lib.rs/development-tools/debugging), dbg, log, rust-gdb | X |
+tools to debug | quite hard and [less app](https://lib.rs/development-tools/debugging), [dbg](https://www.youtube.com/watch?v=bWH-nL7v5F4), [pwndbg] (https://github.com/pwndbg/pwndbg), log, rust-gdb | X |
 tools to testing |  [pretty_assertions](https://crates.io/crates/pretty-assertions), [others](https://lib.rs/development-tools/testing) | X |
 tools to code verification |     | X |
 tools to profiling | [applications](https://lib.rs/development-tools/profiling)  | X |
@@ -165,6 +165,10 @@ GCC | not yet implemented | a bit faster |
 * List of resources related to embedded and low-level programming in the programming language Rust, including a list of useful crates: https://github.com/rust-embedded/awesome-embedded-rust 
 
 # Additional knowledge
+
+## Mutability
+
+* https://manishearth.github.io/blog/2015/05/17/the-problem-with-shared-mutability/
 
 ## Continous programming
 
