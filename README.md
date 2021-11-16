@@ -15,6 +15,10 @@
     - [Create containing both lib.rs and main.rs](#create-containing-both-librs-and-mainrs)
     - [Create Modules](#create-modules)
     - [Create Objects](#create-objects)
+    - [Data structures](#data-structures)
+      - [HashSet example](#hashset-example)
+      - [HashMap with general object](#hashmap-with-general-object)
+      - [LinkedHashMap example](#linkedhashmap-example)
     - [Debug](#debug)
       - [Debugging Project from VScode](#debugging-project-from-vscode)
     - [To build a project and create binary from VSCode](#to-build-a-project-and-create-binary-from-vscode)
@@ -24,8 +28,6 @@
     - [References and lifetimes](#references-and-lifetimes)
     - [Read an environment variable](#read-an-environment-variable)
     - [Read arguments from command line](#read-arguments-from-command-line)
-    - [HashMap with general object](#hashmap-with-general-object)
-    - [LinkedHashMap example](#linkedhashmap-example)
     - [Trait example](#trait-example)
     - [Cast beteween two Traits](#cast-beteween-two-traits)
     - [Traits in function arguments and trait bounds](#traits-in-function-arguments-and-trait-bounds)
@@ -261,6 +263,21 @@ The two options can be combined.
 * https://medium.com/analytics-vidhya/rust-adventures-from-java-class-to-rust-struct-1d63b66890cf
 * https://stevedonovan.github.io/rust-gentle-intro/object-orientation.html
 
+## Data structures
+  
+### HashMap with general object
+  
+  https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=9892be55bae325096a652a97f2581c02
+  
+### LinkedHashMap example
+  
+  * https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=21b4722c25dff6d28fcdf48e4c4e4166
+  * https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=15f2cea99e1c8228091a98b49a9b4996
+  
+### HashSet example
+  
+  https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=38f25460e3423a189437c2aa3ba0bd20
+  
 ## Debug 
 
  * // println!("{:?}", parserResult);
@@ -413,15 +430,6 @@ If you ever want the threaded versions, Arc replaces Rc and Mutex or RwLock repl
   
     [dependencies]
     clap = "3.0.0-beta.2"
-  
-## HashMap with general object
-  
-  https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=9892be55bae325096a652a97f2581c02
-  
-## LinkedHashMap example
-  
-  * https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=21b4722c25dff6d28fcdf48e4c4e4166
-  * https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=15f2cea99e1c8228091a98b49a9b4996
   
 ## Trait example
   
