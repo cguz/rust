@@ -140,7 +140,7 @@ better documentation | X  |  |
 bitwise operation over register values [1](https://opensource.com/article/20/1/c-vs-rust-abstractions) | easy and secure to implement | complex to implement |
 coding standards for programming critical systems | There is nothing, but there are some [resources](https://github.com/rust-embedded/awesome-embedded-rust)  | X |
 easy to verify and catch bugs | at compile-time | hard |
-tools to debug | quite hard and [less app](https://lib.rs/development-tools/debugging), [dbg](https://www.youtube.com/watch?v=bWH-nL7v5F4), [pwndbg] (https://github.com/pwndbg/pwndbg), log, rust-gdb | X |
+tools to debug | quite hard and [less app](https://lib.rs/development-tools/debugging), [dbg](https://www.youtube.com/watch?v=bWH-nL7v5F4) with plugings [pwndbg] (https://github.com/pwndbg/pwndbg). [Gdb on Windows](https://rpg.hamsterrepublic.com/ohrrpgce/GDB_on_Windows), log, rust-gdb | X |
 tools to testing |  [pretty_assertions](https://crates.io/crates/pretty-assertions), [others](https://lib.rs/development-tools/testing) | X |
 tools to code verification |     | X |
 tools to profiling | [applications](https://lib.rs/development-tools/profiling)  | X |
