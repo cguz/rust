@@ -545,3 +545,7 @@ Now, everywhere within my_project, you can access public items from the my_libra
 ## Implement Self-referential types
   
   https://users.rust-lang.org/t/how-can-we-teach-people-about-self-referential-types/65362
+
+## Test macros
+  
+  https://eli.thegreenplace.net/2021/testing-multiple-implementations-of-a-trait-in-rust/
