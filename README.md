@@ -549,3 +549,13 @@ Now, everywhere within my_project, you can access public items from the my_libra
 ## Test macros
   
   https://eli.thegreenplace.net/2021/testing-multiple-implementations-of-a-trait-in-rust/
+  
+## Examples youtube
+  
+  https://www.youtube.com/watch?v=b4mS5UPHh20
+  
+  https://cxx.rs/
+  
+ Safe and unsafe: https://doc.rust-lang.org/nomicon/meet-safe-and-unsafe.html
+  
+  https://rust-unofficial.github.io/too-many-lists/
