@@ -559,3 +559,9 @@ Now, everywhere within my_project, you can access public items from the my_libra
  Safe and unsafe: https://doc.rust-lang.org/nomicon/meet-safe-and-unsafe.html
   
   https://rust-unofficial.github.io/too-many-lists/
+  
+ Cargo https://github.com/facebookincubator/cargo-guppy
+  
+  Discord: https://discord.com/invite/aVESxV8
+  
+  Rust has opened me to a new way of thinking when it comes to designing code - being able to find a bug, and then change the code so that similar bugs become errors at compile time is mind blowing—as discussed in depth https://fasterthanli.me/articles/abstracting-away-correctness and https://fasterthanli.me/articles/aiming-for-correctness-with-types.
