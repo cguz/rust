@@ -95,7 +95,7 @@ if X >= 1 then
    
 * improve the code: **cargo +nightly clippy**
    
-* Generate doc: **cargo +nightly doc --no-deps --open**
+* Generate doc: **cargo +nightly doc --no-deps --open --document-private-items**
           
           --no-deps : by default cargo generate the documentation of all the dependencies
           --open : one finish open it in the browser
