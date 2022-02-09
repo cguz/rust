@@ -3,13 +3,14 @@
 ## Table of Contents  
   - [Documentations](#documentations)
   - [Installation](#installation)
-  - [Versions X.Y.Z](#versions-xyz)
-  - [More useful code with Cargo](#more-useful-code-with-cargo)
-  - [Utils](#utils)
-  - [Libraries](#libraries)
+  - [Useful cargo commands](#useful-cargo-commands)
   - [Compare to C in embedded systems](#compare-to-c-in-embedded-systems)
     - [Benchmarks](#benchmarks)
     - [More Resources](#more-resources)
+  - [Coding](#coding)
+    - [Managing versions X.Y.Z](#versions-xyz)
+    - [Utils](#utils)
+    - [Libraries](#libraries)
   - [Additional knowledge](#additional-knowledge)
     - [Continous programming](#continous-programming)
     - [Create containing both lib.rs and main.rs](#create-containing-both-librs-and-mainrs)
@@ -55,7 +56,7 @@ Rust documentations:
    * [ ] [Rust Lang Foundation](https://foundation.rust-lang.org/)
    * [ ] [Learn about Rust](https://www.rust-lang.org/learn)
    * [ ] [Rustlings code](https://github.com/rust-lang/rustlings/)
-      It is a requirement to install msvc C++ tools from https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16
+      It is a requirement to install [msvc C++ tools](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16)
 
 [The Cargo book](https://doc.rust-lang.org/cargo/index.html): Cargo is the Rust package manager. Cargo downloads your Rust package's dependencies, compiles your packages, makes distributable packages, and uploads them to crates.io, the Rust community’s package registry (this last part can be avoided).
    
@@ -63,65 +64,25 @@ Rust documentations:
 
   * [X] [Rust programm](https://rustup.rs/)
   * [IDEs](https://www.rust-lang.org/tools):
-    * [X] Overview about the state of Rust support by text editors and their integrated: https://areweideyet.com/
+    * [X] [Overview of Rust's IDE](https://areweideyet.com/): overview about the state of Rust support by text editors.
     * [X] [IntelliJ IDEA](https://plugins.jetbrains.com/plugin/8182-rust/docs/rust-quick-start.html): The best one to work is IntelliJ IDEA with the Rust pluging. 
-    * [IDE Eclipse](https://github.com/eclipse/corrosion) or from the official eclipse installer.
+    * [ ] [IDE Eclipse](https://github.com/eclipse/corrosion): Version of Eclipse that support Rust. It can also be installed from the official eclipse installer.
 
-## Versions X.Y.Z
+## Useful cargo commands
 
-How to specify the versions of a Cargo package.
-
-The X.Y.Z means:
-
-* X : Major 
-* Y : Minor 
-* Z : Patch 
-
-In Rust the values of X.Y.Z changes as follows:
-
-if X < 1 then 
-  * 0 : Major 
-  * Y : Minor = Breaking changes
-  * Z : Patch = Whatever
-
-if X >= 1 then 
-  * X : Major = Breaking change
-  * Y : Minor = Add functionality
-  * Z : Patch = Bug fixes
-
-## More useful code with Cargo
-
-* formats automatically the code: **cargo fmt**
+* **cargo fmt**: Format automatically the code.
    
-* improve the code: **cargo +nightly clippy**
+* **cargo +nightly clippy**: Improve code. 
    
-* Generate doc: **cargo +nightly doc --no-deps --open --document-private-items**
+* **cargo +nightly doc --no-deps --open --document-private-items**: Generate doc. 
+
+        --no-deps : by default cargo generate the documentation of all the dependencies
+        --open : one finish open it in the browser
           
-          --no-deps : by default cargo generate the documentation of all the dependencies
-          --open : one finish open it in the browser
-          
-* Compile with no warnings: **alias test='RUSTFLAGS=-Awarnings cargo +nightly test -- --nocapture'**
-* Find out what takes most of the space in your executable: **cargo-bloat**
-* Display a tree visualization of a dependency graph: **cargo-tree**
+* **alias test='RUSTFLAGS=-Awarnings cargo +nightly test -- --nocapture'**: Compile with no warnings.
+* **cargo-bloat**: Find out what takes most of the space in your executable.
+* **cargo-tree**: Display a tree visualization of a dependency graph.
 
-## Utils
-
-* [Play Rust](https://play.rust-lang.org/)
-* [Translate Java to Rust](https://github.com/cguz/java-to-rust)
-
-## Libraries
-
-* Find rust libraries and applications:
-   * [X] [Lib](https://lib.rs/)
-
-* Antlr for rust:
-   * [X] https://crates.io/crates/antlr-rust 
- 
-   Steps to use:
-    * [X] Download the last release from github's repository https://github.com/rrevenantt/antlr4rust
-    * [X] Store the grammar file
-    * [X] Generate the parser java -jar <path to ANTLR4 tool> -Dlanguage=Rust MyGrammar.g4
-  
 ## Compare to C in embedded systems
 
 | features | Rust      | C |
@@ -167,13 +128,54 @@ GCC | not yet implemented | a bit faster |
 * Embedded development with Rust: https://github.com/rust-embedded/wg
 * List of resources related to embedded and low-level programming in the programming language Rust, including a list of useful crates: https://github.com/rust-embedded/awesome-embedded-rust 
 
-# Additional knowledge
+## Coding
 
-## Mutability
+### Managing versions X.Y.Z
+
+We should specify the versions of a Cargo package as X.Y.Z, where:
+
+* X is Major change 
+* Y is Minor change
+* Z is Patch 
+
+In Rust, the values X.Y.Z changes as follows:
+
+if X < 1 then 
+  * 0 : Major 
+  * Y : Minor = Breaking changes
+  * Z : Patch = Whatever
+
+if X >= 1 then 
+  * X : Major = Breaking change
+  * Y : Minor = Add functionality
+  * Z : Patch = Bug fixes
+
+### Utils
+
+* [Play Rust](https://play.rust-lang.org/)
+* [Translate Java to Rust](https://github.com/cguz/java-to-rust)
+
+### Libraries
+
+* Find rust libraries and applications:
+   * [X] [Lib](https://lib.rs/)
+
+* Antlr for rust:
+   * [X] https://crates.io/crates/antlr-rust 
+ 
+   Steps to use:
+    * [X] Download the last release from github's repository https://github.com/rrevenantt/antlr4rust
+    * [X] Store the grammar file
+    * [X] Generate the parser java -jar <path to ANTLR4 tool> -Dlanguage=Rust MyGrammar.g4
+  
+
+## Additional knowledge
+
+### Mutability
 
 * https://manishearth.github.io/blog/2015/05/17/the-problem-with-shared-mutability/
 
-## Continous programming
+### Continous programming
 
 * Check the code before do commit: 
   * vim .git/hook/pre-commit
@@ -183,7 +185,7 @@ GCC | not yet implemented | a bit faster |
         
    * chmod a+x .git/hook/pre-commit
 
-## Create containing both lib.rs and main.rs
+### Create containing both lib.rs and main.rs
 
 The easiest way to create a crate which contains a binary and library (such as your curl and libcurl example) is to create a folder src/bin in your project and place your a file that will serve as the entry point to your binary there (must contain a fn main() {}). In your example this would be src/bin/curl.rs.
 
@@ -233,7 +235,7 @@ If we do this, we need to specify which binary to run on the command line when y
     $ cargo run --bin curl2
     $ cargo run --bin curl3
 
-## Create Modules
+### Create Modules
 
 * https://www.tutorialspoint.com/rust/rust_modules.htm#:~:text=A%20logical%20group%20of%20code%20is%20called%20a,executable%20project%20that%20has%20a%20main%20%28%29%20method.
 
@@ -259,7 +261,7 @@ We can create a module in two ways:
 
 The two options can be combined.
 
-## Create Objects 
+### Create Objects 
 
 * https://medium.com/analytics-vidhya/rust-adventures-from-java-class-to-rust-struct-1d63b66890cf
 * https://stevedonovan.github.io/rust-gentle-intro/object-orientation.html
