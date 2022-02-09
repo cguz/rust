@@ -8,21 +8,19 @@
     - [Compare to C](#compare-to-c)
     - [Benchmarks](#benchmarks)
   - [Coding](#coding)
-    - [Managing versions X.Y.Z](#versions-xyz)
+    - [Managing versions X.Y.Z](#managing-versions-xyz)
     - [Utils](#utils)
     - [Libraries](#libraries)
-  - [Additional knowledge](#additional-knowledge)
     - [Continous programming](#continous-programming)
-    - [Create containing both lib.rs and main.rs](#create-containing-both-librs-and-mainrs)
+    - [Crate with lib.rs and main.rs](#crate-with-librs-and-mainrs)
     - [Create Modules](#create-modules)
-    - [Create Objects](#create-objects)
-    - [Data structures](#data-structures)
-      - [HashSet example](#hashset-example)
-      - [HashMap with general object](#hashmap-with-general-object)
-      - [LinkedHashMap example](#linkedhashmap-example)
+    - [Data structures examples](#data-structures-examples)
     - [Debug](#debug)
-      - [Debugging Project from VScode](#debugging-project-from-vscode)
-    - [To build a project and create binary from VSCode](#to-build-a-project-and-create-binary-from-vscode)
+  - [Additional knowledge](#additional-knowledge)
+    - [Create Objects](#create-objects)
+    - [VSCode](#vscode)
+      - [Debug Project](#debug-project)
+      - [Build project and create binary](#build-project-and-create-binary)
     - [Return null](#return-null)
     - [Enables mutation inside an immutable struct.](#enables-mutation-inside-an-immutable-struct)
     - [How to access value in RefCell properly](#how-to-access-value-in-refcell-properly)
@@ -168,24 +166,18 @@ if X >= 1 then
     * [X] Store the grammar file
     * [X] Generate the parser java -jar <path to ANTLR4 tool> -Dlanguage=Rust MyGrammar.g4
   
-
-## Additional knowledge
-
-### Mutability
-
-* https://manishearth.github.io/blog/2015/05/17/the-problem-with-shared-mutability/
-
 ### Continous programming
 
-* Check the code before do commit: 
-  * vim .git/hook/pre-commit
-      
-        cargo fmt
-        exec cargo clippy -- -D warnings
-        
-   * chmod a+x .git/hook/pre-commit
+Check the code before do commit: 
 
-### Create containing both lib.rs and main.rs
+* vim .git/hook/pre-commit
+      
+      cargo fmt
+      exec cargo clippy -- -D warnings
+
+ * chmod a+x .git/hook/pre-commit
+
+### Crate with lib.rs and main.rs 
 
 The easiest way to create a crate which contains a binary and library (such as your curl and libcurl example) is to create a folder src/bin in your project and place your a file that will serve as the entry point to your binary there (must contain a fn main() {}). In your example this would be src/bin/curl.rs.
 
@@ -237,19 +229,17 @@ If we do this, we need to specify which binary to run on the command line when y
 
 ### Create Modules
 
-* https://www.tutorialspoint.com/rust/rust_modules.htm#:~:text=A%20logical%20group%20of%20code%20is%20called%20a,executable%20project%20that%20has%20a%20main%20%28%29%20method.
+We can create a module in [two ways](https://www.tutorialspoint.com/rust/rust_modules.htm#:~:text=A%20logical%20group%20of%20code%20is%20called%20a,executable%20project%20that%20has%20a%20main%20%28%29%20method):
 
-We can create a module in two ways:
-
-1. In a rust file: 
+1. Adding in a rust file: 
 
         pub mod ddl3{
           pub mod ddl3visitor{}
         }
 
-  Meaning that we have a module ddl3 that inside use a sub module ddl3visitor.
+    Meaning that we have a module **ddl3** that inside use a sub module **ddl3visitor**.
   
-2. In a rust file:
+2. Adding in a rust file:
     
         pub mod pddl3;
   
@@ -257,42 +247,41 @@ We can create a module in two ways:
    
         pub mod ddl3visitor;
     
-   Then, in a folder (module) ddl3/ create the file (submodule) pddl3visitor.rs with the content of the module.
+   Then, in a folder (module) **pddl3/** create the file (submodule) **pddl3visitor.rs** with the content of the module.
 
 The two options can be combined.
+  
+### Data structures examples
+  
+* [HashMap with general object](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=9892be55bae325096a652a97f2581c02)
+* [LinkedHashMap example 1](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=21b4722c25dff6d28fcdf48e4c4e4166) and [example 2](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=15f2cea99e1c8228091a98b49a9b4996)
+* [HashSet example](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=38f25460e3423a189437c2aa3ba0bd20)
+  
+### Debug 
+
+ * // println!("{:?}", parserResult);
+ * dbg!(parserResult);
+
+## Additional knowledge
+
+### Mutability
+
+* https://manishearth.github.io/blog/2015/05/17/the-problem-with-shared-mutability/
 
 ### Create Objects 
 
 * https://medium.com/analytics-vidhya/rust-adventures-from-java-class-to-rust-struct-1d63b66890cf
 * https://stevedonovan.github.io/rust-gentle-intro/object-orientation.html
 
-## Data structures
-  
-### HashMap with general object
-  
-  https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=9892be55bae325096a652a97f2581c02
-  
-### LinkedHashMap example
-  
-  * https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=21b4722c25dff6d28fcdf48e4c4e4166
-  * https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=15f2cea99e1c8228091a98b49a9b4996
-  
-### HashSet example
-  
-  https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=38f25460e3423a189437c2aa3ba0bd20
-  
-## Debug 
+### VSCode
 
- * // println!("{:?}", parserResult);
- * dbg!(parserResult);
-
-### Debugging Project from VScode
+#### Debug Project
 
   * Install extension the **CodeLLDB** (A native debugger extension for VS Code).
   * Open src/main.rs and place breakpoint to left of the line number 3 println!(“Hello, world!”)and press F5 or Run -> Start Debugging to start the debugger.
   * VS Code will display a message stating Cannot start debugging because no launch configuration has been provided. Select default options in order to generate a launch file.
 
-## To build a project and create binary from VSCode
+#### Build project and create binary
 
 In the command line, execute:
 
