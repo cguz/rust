@@ -16,13 +16,13 @@
     - [Create Modules](#create-modules)
     - [Data structures examples](#data-structures-examples)
     - [Debug](#debug)
+    - [Return null](#return-null)
+    - [Enable mutation inside an immutable struct](#enable-mutation-inside-an-immutable-struct)
   - [Additional knowledge](#additional-knowledge)
     - [Create Objects](#create-objects)
     - [VSCode](#vscode)
       - [Debug Project](#debug-project)
       - [Build project and create binary](#build-project-and-create-binary)
-    - [Return null](#return-null)
-    - [Enables mutation inside an immutable struct.](#enables-mutation-inside-an-immutable-struct)
     - [How to access value in RefCell properly](#how-to-access-value-in-refcell-properly)
     - [References and lifetimes](#references-and-lifetimes)
     - [Read an environment variable](#read-an-environment-variable)
@@ -262,11 +262,61 @@ The two options can be combined.
  * // println!("{:?}", parserResult);
  * dbg!(parserResult);
 
+### Return null
+
+You cannot return null in Rust, because there is no such concept in the language. Instead you should use Option<T>:
+
+      fn find_parent(&self, id: &mut String) -> Option<&NodeValue> {
+          if self.id == *id {
+              println!("{},{}", self.id, id);
+              return Some(self);
+          }
+
+          //This loop is pointless, I've kept it because it's in your original code
+          for child in &self.children {
+              println!("{:?}", child);
+              return child.find_parent(id);
+          }
+
+          None
+      }
+
+### Enable mutation inside an immutable struct
+  
+We can do it with Cell<T>, which enables mutation inside an immutable struct. In other words, it enables “interior mutability”. 
+
+Let us see the following example ([took from here](https://doc.rust-lang.org/std/cell/struct.Cell.html)):
+  
+    use std::cell::Cell;
+
+    struct SomeStruct {
+        regular_field: u8,
+        special_field: Cell<u8>,
+    }
+
+    let my_struct = SomeStruct {
+        regular_field: 0,
+        special_field: Cell::new(1),
+    };
+
+    let new_value = 100;
+
+    // ERROR: `my_struct` is immutable
+    // my_struct.regular_field = new_value;
+
+    // WORKS: although `my_struct` is immutable, `special_field` is a `Cell`,
+    // which can always be mutated
+    my_struct.special_field.set(new_value);
+    assert_eq!(my_struct.special_field.get(), new_value);
+  
+Other structure is CellRef : A mutable memory location with dynamically checked borrow rules.
+
+If you ever want the threaded versions, Arc replaces Rc and Mutex or RwLock replaces Cell/RefCel.
+
+Another important topic is the [problem with shared Mutability](https://manishearth.github.io/blog/2015/05/17/the-problem-with-shared-mutability/)
+
+  
 ## Additional knowledge
-
-### Mutability
-
-* https://manishearth.github.io/blog/2015/05/17/the-problem-with-shared-mutability/
 
 ### Create Objects 
 
@@ -327,57 +377,6 @@ To setup tasks create .vscode/tasks.json file and populate with text below provi
          }]
     }
 
-## Return null
-
-You cannot return null in Rust, because there is no such concept in the language. Instead you should use Option<T>:
-
-    fn find_parent(&self, id: &mut String) -> Option<&NodeValue> {
-        if self.id == *id {
-            println!("{},{}", self.id, id);
-            return Some(self);
-        }
-
-        //This loop is pointless, I've kept it because it's in your original code
-        for child in &self.children {
-            println!("{:?}", child);
-            return child.find_parent(id);
-        }
-
-        None
-    }
-
-## Enables mutation inside an immutable struct.
-  
-We can do it with Cell<T>, which enables mutation inside an immutable struct. 
-  
-In other words, it enables “interior mutability”. Example took from https://doc.rust-lang.org/std/cell/struct.Cell.html
-
-    use std::cell::Cell;
-
-    struct SomeStruct {
-        regular_field: u8,
-        special_field: Cell<u8>,
-    }
-
-    let my_struct = SomeStruct {
-        regular_field: 0,
-        special_field: Cell::new(1),
-    };
-
-    let new_value = 100;
-
-    // ERROR: `my_struct` is immutable
-    // my_struct.regular_field = new_value;
-
-    // WORKS: although `my_struct` is immutable, `special_field` is a `Cell`,
-    // which can always be mutated
-    my_struct.special_field.set(new_value);
-    assert_eq!(my_struct.special_field.get(), new_value);
-  
-Other structure is CellRef : A mutable memory location with dynamically checked borrow rules.
-
-If you ever want the threaded versions, Arc replaces Rc and Mutex or RwLock replaces Cell/RefCel.
-  
 ## How to access value in RefCell properly
   
   https://stackoverflow.com/questions/25297447/how-to-access-value-in-refcell-properly
