@@ -42,23 +42,22 @@
 
 ## Documentations
 
-* Code / API Guidelines:
+Code / API Guidelines:
    * [X] [Rust API Guidelines](https://rust-lang.github.io/api-guidelines/about.html)
    * [X] [API documentation conventions](https://rust-lang.github.io/rfcs/1574-more-api-documentation-conventions.html#appendix-a-full-conventions-text)
    * [X] [Making useful documentation comments](https://doc.rust-lang.org/book/ch14-02-publishing-to-crates-io.html#making-useful-documentation-comments)
-   * [Rust Style Guide](https://github.com/rust-dev-tools/fmt-rfcs/blob/master/guide/guide.md), 
+   * [ ] [Rust Style Guide](https://github.com/rust-dev-tools/fmt-rfcs/blob/master/guide/guide.md), 
 
-* Rust documentations: 
+Rust documentations: 
    * [X] [The book](https://doc.rust-lang.org/book/index.html)
    * [X] Cheat Sheets: [Cheats](https://cheats.rs/), [Programming Idioms](https://programming-idioms.org/cheatsheet/Rust)
    * [X] [Learn by examples](https://doc.rust-lang.org/rust-by-example/index.html)
-   * [X] [Programming Idioms](https://programming-idioms.org/idiom/26/create-a-2-dimensional-array/448/rust)
-   * [Rust Lang Foundation](https://foundation.rust-lang.org/)
-   * [Learn about Rust](https://www.rust-lang.org/learn)
-   * [Rustlings code](https://github.com/rust-lang/rustlings/)
+   * [ ] [Rust Lang Foundation](https://foundation.rust-lang.org/)
+   * [ ] [Learn about Rust](https://www.rust-lang.org/learn)
+   * [ ] [Rustlings code](https://github.com/rust-lang/rustlings/)
       It is a requirement to install msvc C++ tools from https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16
 
-* [The Cargo book](https://doc.rust-lang.org/cargo/index.html): Cargo is the Rust package manager. Cargo downloads your Rust package's dependencies, compiles your packages, makes distributable packages, and uploads them to crates.io, the Rust community’s package registry (this last part can be avoided).
+[The Cargo book](https://doc.rust-lang.org/cargo/index.html): Cargo is the Rust package manager. Cargo downloads your Rust package's dependencies, compiles your packages, makes distributable packages, and uploads them to crates.io, the Rust community’s package registry (this last part can be avoided).
    
 ## Installation
 
