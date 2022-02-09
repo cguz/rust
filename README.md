@@ -4,9 +4,9 @@
   - [Documentations](#documentations)
   - [Installation](#installation)
   - [Useful cargo commands](#useful-cargo-commands)
-  - [Compare to C in embedded systems](#compare-to-c-in-embedded-systems)
+  - [Embedded systems](#embedded-systems)
+    - [Compare to C](#compare-to-c)
     - [Benchmarks](#benchmarks)
-    - [More Resources](#more-resources)
   - [Coding](#coding)
     - [Managing versions X.Y.Z](#versions-xyz)
     - [Utils](#utils)
@@ -83,7 +83,12 @@ Rust documentations:
 * **cargo-bloat**: Find out what takes most of the space in your executable.
 * **cargo-tree**: Display a tree visualization of a dependency graph.
 
-## Compare to C in embedded systems
+## Embedded systems
+
+* [Embedded development Group](https://github.com/rust-embedded/wg)
+* [Awesome embedded Rust](https://github.com/rust-embedded/awesome-embedded-rust): List of resources related to embedded and low-level programming for Rust, including a list of useful crates.
+
+### Compare to C 
 
 | features | Rust      | C |
 | -- | --------  | -------- |
@@ -120,13 +125,8 @@ GCC | not yet implemented | a bit faster |
 
 ### Benchmarks
 
-* Benchmarks of C vs Rust: https://benchmarksgame-team.pages.debian.net/benchmarksgame/fastest/gcc-rust.html 
-* Benchmarks of Rust programms: https://benchmarksgame-team.pages.debian.net/benchmarksgame/measurements/rust.html 
-
-### More Resources 
-
-* Embedded development with Rust: https://github.com/rust-embedded/wg
-* List of resources related to embedded and low-level programming in the programming language Rust, including a list of useful crates: https://github.com/rust-embedded/awesome-embedded-rust 
+* [C vs Rust](https://benchmarksgame-team.pages.debian.net/benchmarksgame/fastest/gcc-rust.html)
+* [Rust programs & measurements](https://benchmarksgame-team.pages.debian.net/benchmarksgame/measurements/rust.html)
 
 ## Coding
 
