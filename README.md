@@ -18,12 +18,6 @@
     - [Debug](#debug)
     - [Return null](#return-null)
     - [Enable mutation inside an immutable struct](#enable-mutation-inside-an-immutable-struct)
-  - [Additional knowledge](#additional-knowledge)
-    - [Create Objects](#create-objects)
-    - [VSCode](#vscode)
-      - [Debug Project](#debug-project)
-      - [Build project and create binary](#build-project-and-create-binary)
-    - [How to access value in RefCell properly](#how-to-access-value-in-refcell-properly)
     - [References and lifetimes](#references-and-lifetimes)
     - [Read an environment variable](#read-an-environment-variable)
     - [Read arguments from command line](#read-arguments-from-command-line)
@@ -33,8 +27,14 @@
     - [Returning traits](#returning-traits)
     - [Trait combos](#trait-combos)
     - [Associated Types](#associated-types)
+    - [Patterns](#patterns)    
+  - [Additional knowledge](#additional-knowledge)
+    - [Create Objects](#create-objects)
+    - [VSCode](#vscode)
+      - [Debug Project](#debug-project)
+      - [Build project and create binary](#build-project-and-create-binary)
+    - [How to access value in RefCell properly](#how-to-access-value-in-refcell-properly)
     - [Share code between multiple Cargo projects](#share-code-between-multiple-cargo-projects)
-    - [Patterns](#patterns)
     - [Docker file example](#docker-file-example)
     - [Create GUI](#create-gui)
     - [Draw macro](#draw-macro)
@@ -57,7 +57,9 @@ Rust documentations:
       It is a requirement to install [msvc C++ tools](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16)
 
 [The Cargo book](https://doc.rust-lang.org/cargo/index.html): Cargo is the Rust package manager. Cargo downloads your Rust package's dependencies, compiles your packages, makes distributable packages, and uploads them to crates.io, the Rust community’s package registry (this last part can be avoided).
-   
+
+[Discord](https://discord.com/invite/aVESxV8)
+
 ## Installation
 
   * [X] [Rust programm](https://rustup.rs/)
@@ -81,6 +83,8 @@ Rust documentations:
 * **cargo-bloat**: Find out what takes most of the space in your executable.
 * **cargo-tree**: Display a tree visualization of a dependency graph.
 
+* [Detect dependency](https://github.com/facebookincubator/cargo-guppy)
+  
 ## Embedded systems
 
 * [Embedded development Group](https://github.com/rust-embedded/wg)
@@ -314,7 +318,121 @@ Other structure is CellRef : A mutable memory location with dynamically checked 
 If you ever want the threaded versions, Arc replaces Rc and Mutex or RwLock replaces Cell/RefCel.
 
 Another important topic is the [problem with shared Mutability](https://manishearth.github.io/blog/2015/05/17/the-problem-with-shared-mutability/)
+  
+### References and lifetimes
+  
+  * https://blog.thoughtram.io/references-in-rust/
+  * https://blog.thoughtram.io/lifetimes-in-rust/
+ 
+### Read an environment variable
+  
+    use std::env;
+    ..
 
+    fn main() {
+        let silent = env::var("PV_SILENT").unwrap_or(String::new()).len() > 0;
+        dbg!(silent);
+  
+### Read arguments from command line
+  
+    use clap::{App, Arg};
+
+    fn main() {
+        let matches = App::new("pipeviewer")
+            .arg(Arg::with_name("infile")).help("Read from a file")
+            .arg(
+                Arg::with_name("outfile")
+                    .short("o")
+                    .long("outfile")
+                    .takes_value(true)
+                    .help("Write output to a file instead of stdout")
+            )
+            .arg(Arg::with_name("silent")
+                .short("s")
+                .long("silent"))
+            .get_matches();
+
+        let infile = matches.value_of("infile").unwrap_or_default();
+    }
+  
+  In Cargo.toml add:
+  
+    [dependencies]
+    clap = "3.0.0-beta.2"
+  
+### Trait example
+  
+  * [OOP Java](https://medium.com/analytics-vidhya/rust-adventures-from-java-class-to-rust-struct-1d63b66890cf)
+  * [Element as a trait, others as Instance](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=636db8a49ac2c266450e8f6ac335b839
+  * [Element as Instance, other as traits](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=cd6a6a5accdd4ab06ac46bc90e3ef4dc)
+  * [Element as Instance, other as traits. With Enum](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=afb01a39b3641afd665f410d1c7e497f).
+  
+### Cast beteween two Traits. 
+  
+  No, it is not possible. Some solutions are:
+  
+  * If you own these traits, then you can add **as_foo** to the **Bar** trait and vice versa. [playground](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=8b92e55d587228bb55e70ddcab6a7cb5)
+  * You could create an enum that holds either a **Box\<dyn Foo>** or a **Box\<dyn Bar>** and then pattern match. 
+  * You could move the body of **bar** into the body of **foo** for that implementation.
+  * You could implement a third trait **Quux** where calling **\<FooStruct as Quux>::quux** calls **Foo::foo** and calling **\<BarStruct as Quux>::quux** calls **Bar::foo** followed by **Bar::bar**.
+  
+  Source from: https://stackoverflow.com/questions/34419561/can-i-cast-between-two-traits
+    
+### Traits in function arguments and trait bounds
+  
+Consider these two functions:
+
+      use std::fmt::Debug;
+
+      fn f(a: &Debug, b: &Debug) {
+          todo!()
+      }
+
+      fn g<T: Debug>(a: &T, b: &T) {
+          todo!()
+      }
+  
+Ignoring the fact that they don’t do anything, the function f will accept any two arguments that implement the Debug trait, even if they are two different types. On the other hand, g will only accept two arguments of the same type, but that type can be any type that implements Debug.
+  
+### Returning traits
+
+We can use traits as return types from functions. There are two different ways to do this: impl Trait and Box<dyn Trait>. Again, the differences are subtle but important.
+
+      use std::fmt::Debug;
+
+      fn dyn_trait(n: u8) -> Box<dyn Debug> {
+          todo!()
+      }
+
+      fn impl_trait(n: u8) -> impl Debug {
+          todo!()
+      }
+  
+The dyn_trait function can return any number of types that implement the Debug trait and can even return a different type depending on the input argument. This is known as a trait object. “The Rust Programming Language” book has a section on using trait objects for dynamic dispatch if you want to delve further.
+
+The impl_trait method, on the other hand, can only return a single type that implements the Debug trait. In other words, the function will always return the same type.
+
+While this difference may make impl Trait appear less useful than trait objects, it has a very important feature (in addition to being easier to type and to work with): you can use it to return iterators and closures. This is explained further in the book’s chapter on traits, “Returning Types that Implement Traits.”
+  
+### Trait combos
+  
+T: Trait1 + Trait2 + Trait3.
+
+Source: https://blog.logrocket.com/rust-traits-a-deep-dive/ 
+ 
+### Associated Types
+  
+    trait Associated {
+        type T;
+        fn get(&self) -> Self::T;
+    }
+  
+Source: https://blog.thomasheartman.com/posts/on-generics-and-associated-types
+ 
+### Patterns
+  
+* [Enum wrapper for traits](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=2f40c19dfcdec7978fd7c716639b1388). Source https://bennetthardwick.com/dont-use-boxed-trait-objects-for-struct-internals
+  
   
 ## Additional knowledge
 
@@ -381,116 +499,6 @@ To setup tasks create .vscode/tasks.json file and populate with text below provi
   
   https://stackoverflow.com/questions/25297447/how-to-access-value-in-refcell-properly
 
-## References and lifetimes
-  
-  * https://blog.thoughtram.io/references-in-rust/
-  * https://blog.thoughtram.io/lifetimes-in-rust/
- 
-## Read an environment variable
-  
-    use std::env;
-    ..
-
-    fn main() {
-        let silent = env::var("PV_SILENT").unwrap_or(String::new()).len() > 0;
-        dbg!(silent);
-  
-## Read arguments from command line
-  
-    use clap::{App, Arg};
-
-    fn main() {
-        let matches = App::new("pipeviewer")
-            .arg(Arg::with_name("infile")).help("Read from a file")
-            .arg(
-                Arg::with_name("outfile")
-                    .short("o")
-                    .long("outfile")
-                    .takes_value(true)
-                    .help("Write output to a file instead of stdout")
-            )
-            .arg(Arg::with_name("silent")
-                .short("s")
-                .long("silent"))
-            .get_matches();
-
-        let infile = matches.value_of("infile").unwrap_or_default();
-    }
-  
-  In Cargo.toml add:
-  
-    [dependencies]
-    clap = "3.0.0-beta.2"
-  
-## Trait example
-  
-  * [OOP Java](https://medium.com/analytics-vidhya/rust-adventures-from-java-class-to-rust-struct-1d63b66890cf)
-  * [Element as a trait, others as Instance](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=636db8a49ac2c266450e8f6ac335b839
-  * [Element as Instance, other as traits](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=cd6a6a5accdd4ab06ac46bc90e3ef4dc)
-  * [Element as Instance, other as traits. With Enum](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=afb01a39b3641afd665f410d1c7e497f).
-  
-## Cast beteween two Traits. 
-  
-  Source from: https://stackoverflow.com/questions/34419561/can-i-cast-between-two-traits
-  
-  No, it is not possible. Some solutions are:
-  
-  * If you own these traits, then you can add **as_foo** to the **Bar** trait and vice versa. [playground](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=8b92e55d587228bb55e70ddcab6a7cb5)
-  * You could create an enum that holds either a **Box\<dyn Foo>** or a **Box\<dyn Bar>** and then pattern match. 
-  * You could move the body of **bar** into the body of **foo** for that implementation.
-  * You could implement a third trait **Quux** where calling **\<FooStruct as Quux>::quux** calls **Foo::foo** and calling **\<BarStruct as Quux>::quux** calls **Bar::foo** followed by **Bar::bar**.
-    
-## Traits in function arguments and trait bounds
-  
-Consider these two functions:
-
-      use std::fmt::Debug;
-
-      fn f(a: &Debug, b: &Debug) {
-          todo!()
-      }
-
-      fn g<T: Debug>(a: &T, b: &T) {
-          todo!()
-      }
-  
-Ignoring the fact that they don’t do anything, the function f will accept any two arguments that implement the Debug trait, even if they are two different types. On the other hand, g will only accept two arguments of the same type, but that type can be any type that implements Debug.
-  
-## Returning traits
-
-We can use traits as return types from functions. There are two different ways to do this: impl Trait and Box<dyn Trait>. Again, the differences are subtle but important.
-
-      use std::fmt::Debug;
-
-      fn dyn_trait(n: u8) -> Box<dyn Debug> {
-          todo!()
-      }
-
-      fn impl_trait(n: u8) -> impl Debug {
-          todo!()
-      }
-  
-The dyn_trait function can return any number of types that implement the Debug trait and can even return a different type depending on the input argument. This is known as a trait object. “The Rust Programming Language” book has a section on using trait objects for dynamic dispatch if you want to delve further.
-
-The impl_trait method, on the other hand, can only return a single type that implements the Debug trait. In other words, the function will always return the same type.
-
-While this difference may make impl Trait appear less useful than trait objects, it has a very important feature (in addition to being easier to type and to work with): you can use it to return iterators and closures. This is explained further in the book’s chapter on traits, “Returning Types that Implement Traits.”
-  
-## Trait combos
-  
-T: Trait1 + Trait2 + Trait3.
-
-Source: https://blog.logrocket.com/rust-traits-a-deep-dive/ 
-  
-## Associated Types
-  
-    trait Associated {
-        type T;
-        fn get(&self) -> Self::T;
-    }
-  
-Source: https://blog.thomasheartman.com/posts/on-generics-and-associated-types
-
 ## Share code between multiple Cargo projects
   
 The way to do this is to make a library:
@@ -517,10 +525,6 @@ Now, everywhere within my_project, you can access public items from the my_libra
         my_library::do_stuff();
     }
 
-## Patterns
-  
-* [Enum wrapper for traits](https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=2f40c19dfcdec7978fd7c716639b1388). Source https://bennetthardwick.com/dont-use-boxed-trait-objects-for-struct-internals
-  
 ## Docker file example
   
   https://github.com/integer32llc/rust-playground/blob/master/compiler/base/Dockerfile
@@ -551,8 +555,6 @@ Now, everywhere within my_project, you can access public items from the my_libra
   
   https://rust-unofficial.github.io/too-many-lists/
   
- Cargo https://github.com/facebookincubator/cargo-guppy
+----
   
-  Discord: https://discord.com/invite/aVESxV8
-  
-  Rust has opened me to a new way of thinking when it comes to designing code - being able to find a bug, and then change the code so that similar bugs become errors at compile time is mind blowing—as discussed in depth https://fasterthanli.me/articles/abstracting-away-correctness and https://fasterthanli.me/articles/aiming-for-correctness-with-types.
+Rust has opened me to a new way of thinking when it comes to designing code - being able to find a bug, and then change the code so that similar bugs become errors at compile time is mind blowing—as discussed in depth https://fasterthanli.me/articles/abstracting-away-correctness and https://fasterthanli.me/articles/aiming-for-correctness-with-types.
