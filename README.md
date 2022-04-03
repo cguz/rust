@@ -51,6 +51,7 @@ Rust documentations:
    * [X] [The book](https://doc.rust-lang.org/book/index.html)
    * [X] Cheat Sheets: [Cheats](https://cheats.rs/), [Programming Idioms](https://programming-idioms.org/cheatsheet/Rust)
    * [X] [Learn by examples](https://doc.rust-lang.org/rust-by-example/index.html)
+   * [X] [Rust cookbook](https://rust-lang-nursery.github.io/rust-cookbook/)
    * [ ] [Rust Lang Foundation](https://foundation.rust-lang.org/)
    * [ ] [Learn about Rust](https://www.rust-lang.org/learn)
    * [ ] [Rustlings code](https://github.com/rust-lang/rustlings/)
