@@ -56,6 +56,12 @@ Rust documentations:
    * [ ] [Learn about Rust](https://www.rust-lang.org/learn)
    * [ ] [Rustlings code](https://github.com/rust-lang/rustlings/)
       It is a requirement to install [msvc C++ tools](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16)
+   * [ ] [A half-hour to learn Rust](https://fasterthanli.me/articles/a-half-hour-to-learn-rust). In this short article, fasterthanlime goes through as many Rust snippets as he can, explaining what the keywords and symbols they contain mean.
+   * [ ] [Comprehensive Rust](https://google.github.io/comprehensive-rust/). Another free Rust course, developed by the Android team at Google. It covers the full spectrum of Rust and then dives into more specialized topics, such as Android, Chromium, bare-metal, and concurrency.
+   * [ ] [Learn Rust With Entirely Too Many Linked Lists](https://rust-unofficial.github.io/too-many-lists/). A fun and entertaining book on the intricacies of Rust (and linked lists) by the same author of the eldritch Rustonomicon.
+   * [ ] [Rustlings](https://github.com/rust-lang/rustlings/). Small exercises to get you used to reading and writing Rust code, useful for some easy practice once you’ve learned the basics of the language. Alternatively, check out Rust by Example.
+   * [ ] [100 Exercises To Learn Rust](https://rust-exercises.com/). After going through everything above with the proper attitude, you’re probably ready to start developing your own code. If you still feel the need for some more guided practice, this is an excellent resource.
+   * [ ] [Rust Language Cheat Sheet](https://cheats.rs/). Finally, this awesome cheatsheet puts everything together in a compact way, much easier to consult than the official Rust Reference. Keep it handy while hacking on Rust.
 
 [The Cargo book](https://doc.rust-lang.org/cargo/index.html): Cargo is the Rust package manager. Cargo downloads your Rust package's dependencies, compiles your packages, makes distributable packages, and uploads them to crates.io, the Rust community’s package registry (this last part can be avoided).
 
